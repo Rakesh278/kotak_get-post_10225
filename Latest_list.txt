@@ -1,0 +1,274 @@
+ByPass
+***************
+
+?actionCode=    [1k]
+?submitform=   [2]
+
+
+javascripts/eHlpDhtm.js:		var wndOldPopupLinks= window.open(document.location.href, "popuplinks");
+javascripts/eHlpDhtm.js:			wndTemp = window.open(document.location.href, "temp", strParam);
+javascripts/eHlpDhtm.js:			wndPopupLinks= window.open(document.location.href, "popuplinks", strParam);
+javascripts/eHlpDhtm.js:		var wmTemp = window.open(document.location.href, gstrPopupSecondWindowName);
+javascripts/eHlpDhtm.js:				wmTemp= window.open(document.location.href, "Temp", strParam);
+
+--document.location.href is used as 1st argument in window.open. So, no issues
+
+javascripts/eHlpDhtm.js:			targetDoc.location.href = strURL;
+javascripts/eHlpDhtm.js:				getPopupIFrame(nIndex).document.location.href = strURL;
+javascripts/eHlpDhtm.js:				window.location.href = e.target.href;
+javascripts/eHlpDhtm.js:		setAbsPopupURL(nIndex, window.getPopupIFrame(nIndex).document.location.href); // change URL to abs url.
+javascripts/eHlpDhtm.js:		setAbsPopupURL(nIndex, window.getPopupIFrame(nIndex).document.location.href); // change URL to abs url.
+javascripts/eHlpDhtm.js:			if (window.getPopupIFrame(nIndex).document.location.href.indexOf("about:blank") != -1) { // add this check. IE will use about:blank" as the default vaule for Iframe.
+javascripts/eHlpDhtm.js:					setAbsPopupURL(nIndex, window.getPopupIFrame(nIndex).document.location.href); // change URL to abs url.
+javascripts/eHlpDhtm.js:		getPopupIFrame(nIndex).location.href = strURL;  // reload again, this will fix the bookmark misunderstand in IE5.
+javascripts/eHlpDhtm.js:	if (window.getPopupIFrame(nIndex).document.location.href != getAbsPopupURL(nIndex)) { // if redirect, reload again.
+javascripts/eHlpDhtm.js:			window.document.location.href = PopupMenu_Invoke.arguments[3];
+
+-- these are CRV help files. Not used
+
+location.href is right side, so, it is retreiving value and not firing a request.
+
+javascripts/cbe_util.js:  var idx = location.href.indexOf('?');
+javascripts/cbe_util.js:    var pairs = location.href.substring(idx+1, location.href.length).split('&');
+
+
+javascripts/header_link.js:
+
+displayMenu(){
+    document.location.href = jsUtil.formatUrl(url); 
+}
+- this gets called only in local envs not for PROD URLs
+
+function getAbsoluteUrl(sUrl){
+    var location = document.location.href;
+    location = location.substring(0,location.lastIndexOf("/")+1);
+    if(sUrl.indexOf("http://") == -1 && sUrl.indexOf("https://") == -1){
+            sUrl = location + sUrl;
+    }
+    return sUrl;
+}
+- getAbsoluteUrl is followed by a child page - window.open or showModal. So, these can be skipped.
+- Need to check if anywhere else this method is followed without child page.
+    fnFileDownloadUtil - contains arjspmorph
+    header_link.js, it contains arjspmorph
+    slidemenu.js - it contains arjspmorph
+
+
+login_common_functions : 
+
+document.location.href = finContextPath + "/arjspmorph/cleanup.jsp?rtId="+rtId+"&logout=YES";
+- arjspmorph
+
+document.location.href = fabUrl;
+- FAB, not used
+
+function getAbsoluteUrl(sUrl){
+    var location = document.location.href;
+-- getAbsoluteUrl is followed by a child page - window.open or showModal. So, these can be skipped.
+
+parentObj.frames[finConst.FINFRAME].location.href = finContextPath + "/arjspmorph/onssessioncleanup.jsp?rtId="+rtId;
+parentObj.frames[finConst.FINFRAME].location.href = finContextPath + "/arjspmorph/onssessioncleanup.jsp?rtId="+rtId;
+
+- contains arjspmorph
+
+index.js
+
+function switchEntity(
+    var sUrl = hostInfo + finContextPath + "/fincore.jsp?rtId=" + rtId + "&";
+
+    sUrl += finConst.ACTION_CODE + "=" + ccConst.INIT_CHNGCONTEXT_EVT;
+
+    window.frames[finConst.FINFRAME].location.href = sUrl;
+
+-- this contains fincore.jsp which is in bypass list
+
+SCM area---
+
+javascripts/crv_common_functions.js:  window.location.href = onsurlwf;
+javascripts/crv_common_functions.js:            var url = window.location.href;
+javascripts/crv_common_functions.js:                                    parentObj.frames[crvConst.CRVFRAME].location.href = baseUrl +  crvContextPath + "/arjspmorph/sessioncleanup.jsp";
+javascripts/crv_common_functions.js:                                            parentObj.frames[crvConst.CRVFRAME].location.href = baseUrl + crvContextPath + "/arjspmorph/sessioncleanup.jsp";
+javascripts/crv_common_functions.js:                                            parentObj.frames[crvConst.CRVFRAME].location.href =baseUrl+crvContextPath + "/arjspmorph/sessioncleanup.jsp";
+javascripts/crv_common_functions.js:                                    document.location.href = baseUrl + crvContextPath + "/arjspmorph/crvcleanup.jsp";
+javascripts/crv_common_functions.js:    var url = window.location.href;
+javascripts/crvheader_link.js:      document.location.href = url;
+
+-- these are CRV files. Not used
+
+javascripts/drpdtls_link.js:                    document.location.href = jsUtil.formatUrl(CONTROL_PAGE + Const.ACTION_CANCEL);
+javascripts/imcdtl_link.js:                     document.location.href = jsUtil.formatUrl(CONTROL_PAGE_STR + Const.ACTION_CANCEL);
+javascripts/imcdtl_link.js:             document.location.href = jsUtil.formatUrl(CONTROL_PAGE_STR + Const.ACTION_BACK);
+javascripts/imcvrfy1_link.js:                   document.location.href = jsUtil.formatUrl(CONTROL_PAGE_STR + Const.ACTION_CANCEL);
+javascripts/imcvrfy1_link.js:           document.location.href = jsUtil.formatUrl(CONTROL_PAGE_STR + Const.ACTION_BACK);
+javascripts/drplist_link.js:                    document.location.href = jsUtil.formatUrl(CONTROL_PAGE + Const.ACTION_CANCEL);
+javascripts/drplist_link.js:            document.location.href = jsUtil.formatUrl(CONTROL_PAGE + Const.ACTION_BACK);
+javascripts/imcaddnlcrit_link.js:                       document.location.href = jsUtil.formatUrl(CONTROL_PAGE_STR + Const.ACTION_CANCEL);
+javascripts/serialdet_link.js:                  document.location.href = jsUtil.formatUrl(CONTROL_PAGE_STR + Const.ACTION_CANCEL);
+javascripts/serialdet_link.js:          document.location.href = jsUtil.formatUrl(CONTROL_PAGE_STR + Const.ACTION_BACK);
+
+
+-- CONTROL_PAGE value contains ?actionCode=
+
+javascripts/pnpbd_link.js:                      document.location.href = jsUtil.formatUrl(surl);
+javascripts/pnpbddet_link.js:                           document.location.href = jsUtil.formatUrl(surl);
+
+- surl contains ?actionCode=
+
+
+Fix
+****************
+
+product:
+---------
+
+submitInPost() to replace document.location.href  [7]
+
+javascripts/repowc/oclodgereplay_inc.js:        document.location.href = jsUtil.formatUrl('<arjsp:return defaultPath="../repowc/repowc_ctrl.jsp"/>');
+javascripts/tmplcre/tmplcre_inc.js:                     document.location.href = jsUtil.formatUrl('<arjsp:return defaultPath="template_ctrl.jsp"/>');
+javascripts/ddpayment/ddpayment_inc.js:     document.location.href = jsUtil.formatUrl("<arjsp:return defaultPath="ddpayment_ctrl.jsp"/>");
+javascripts/stoppayment/stoppayment_inc.js:        document.location.href = jsUtil.formatUrl("<arjsp:return defaultPath="stoppayment_ctrl.jsp"/>");
+javascripts/stoppayment/stoppayment_inc.js:       document.location.href = jsUtil.formatUrl("<arjsp:return defaultPath="stoppayment_ctrl.jsp"/>");           
+javascripts/revokepayment/revokepayment_inc.js:         document.location.href = jsUtil.formatUrl("<arjsp:return defaultPath="revokepayment_ctrl.jsp"/>");
+javascripts/repiwc/inwclgreplay_inc.js: document.location.href = jsUtil.formatUrl('<arjsp:return defaultPath="../repiwc/repiwc_ctrl.jsp"/>');
+
+javascripts/fcumm/fcumm_resultpage_link.js:function fnOnButtonClick(){var a=document.forms[0];if(("F"==sTemplateStatus)&&confirm(finbranchResArr.get("FAT000390"))){a.submitform.value="AddCust";a.submit()}else{document.location.href=jsUtil.formatUrl(returnPath)}}function fnOnLoad(){hideImage("showbglink");hideImage("bgmenuleftcurve");hideImage("bgmenurightcurve");hideImage("exitbglink");hideImage("exitbgmenuleftcurve");hideImage("exitbgmenurightcurve");hideImage("showmemopad");hideImage("showmemoleftcurve");hideImage("showmemorightcurve");document.forms[0].Close.focus()};
+javascripts/fopacop/fopacopres_link.js:function fnOnButtonClick(){if(("F"==sTemplateStatus)&&confirm(finbranchResArr.get("FAT000391"))){document.forms[0].submitform.value="AddAcct";document.forms[0].submit()}else{document.location.href=jsUtil.formatUrl(returnPath)}};
+
+javascripts/cdpmcrit_link.js:   document.location.href = jsUtil.formatUrl('../cdpm/cdpm_ctrl.jsp?cdpm.funcCode='+funCodeValue);
+
+give actionCode as 1st parameter --- ?actionCode=   [7]
+
+javascripts/ctm/sctmcrit_link.js:var objForm=null;function fnOnLoad(){objForm=document.forms[0];initFocusHandler();fnPopulateControlValues();objForm.month.focus()}function fnOnButtonClick(a){if(a.id==Const.ACTION_ACCEPT||a.id==Const.ACTION_VALIDATE){if(fnValidateMandatoryFields()){if(validateTypes(objForm)){if(fnIsValidYear()){doSubmit(a.id)}else{return false}}else{return false}}else{return false}}else{if(a.id==Const.ACTION_CLEAR){formReset(objForm);document.location.href=jsUtil.formatUrl("../ctm/ctm_ctrl.jsp?mo="+menuName+"&actionCode="+a.id)}}return true}function validateCalTblCode(c,b,a){clearDescField(a);if(!fnIsNull(c.value)){doSubmit(b)}}function fnIsValidYear(){locYear=objForm.year.value;if(isNaN(locYear)||locYear.length<4||parseInt(locYear,10)==0){alert(finbranchResArr.get("FAT000281"));objForm.year.focus();return false}else{if(parseInt(locYear,10)<1900||parseInt(locYear,10)>2099){alert(finbranchResArr.get("FAT002020"));objForm.year.focus();return false}}return true};
+javascripts/ctm/ctmdet_link.js:var objForm=null;var TOT_TD_COUNT=42;var ARR_DELIMITER="|";var DATE_DELIMITER="-";var CAL_LEFT_COLUMN="calenderleftcolumn";var CAL_MID_COLUMN="calendermidcolumn";var HIGHLIGHTED="Highlighted";var HIGHLIGHTED_GRAY="HighlightedGray";var LINE_BREAK="<BR>";var SPACE=" ";var ASTERISK="*";var holidayInd;var holidayDesc;var localMthBeginInd;var currIndex;function fnOnLoad(){objForm=document.forms[0];initFocusHandler();document.title=pageTitle;fnPopulateCtrlValues(currIndex);fnPopulateHiddenValues();fnSetStyle(eval("cell"+currIndex),currIndex,true);if(funcCode.toUpperCase()==Const.ADD_MODE||funcCode.toUpperCase()==Const.MODIFY_MODE||funcCode.toUpperCase()==Const.COPY_MODE){fnSetFocus(currIndex)}else{fnDisableFormDataControls(funcCode,objForm,1);showImage("sLnk1");fnSetFocus(currIndex);if(funcCode.toUpperCase()==Const.INQUIRE_MODE){objForm.Back.focus()}else{objForm.Cancel.disabled=false;objForm.Submit.focus()}}}function showCalendarDtls(){var tdCount=0;var bRowBegin=true;var className="";with(document){write("<tr>");for(var i=0;i<parseInt(holDtls[0].dayOfWeek,10)-1;i++){if(bRowBegin){className=CAL_LEFT_COLUMN}else{className=CAL_MID_COLUMN}write('<td height="50" class="'+className+'">');write("<div>&nbsp;</div></td>");bRowBegin=false;tdCount++}var tmpDayOfMth="";var tmpHolInd="";var tmpHolDesc="";var tmpLocMthBeginInd="";for(var i=1;i<=parseInt(holDtls.length,10);i++){tmpDayOfMth=holDtls[i-1].dayOfMth;tmpHolInd=holDtls[i-1].holInd;tmpHolDesc=holDtls[i-1].holDesc;tmpLocMthBeginInd=holDtls[i-1].locMthBeginInd;if(bRowBegin){className=CAL_LEFT_COLUMN}else{className=CAL_MID_COLUMN}var holidayDtls=tmpDayOfMth+SPACE+tmpLocMthBeginInd+LINE_BREAK;if(!(fnIsNull(tmpHolInd))||!(fnIsNull(tmpHolDesc))||!(fnIsNull(tmpLocMthBeginInd))){className+=HIGHLIGHTED_GRAY;if(fnIsNull(tmpHolInd.toUpperCase())){holidayDtls+="&nbsp;"+LINE_BREAK}else{holidayDtls+=fnGetHolidayDesc(tmpHolInd.toUpperCase())+LINE_BREAK}holidayDtls+=tmpHolDesc.toUpperCase()+LINE_BREAK}write('<td height="50" class="'+className+'" id="cell'+i+'" onClick="fnOnCellFocus(this,'+i+');"');write("<div>");write(holidayDtls);write("</div></td>");bRowBegin=false;tdCount++;if(tdCount%7==0){write("</tr>");write('<tr valign="top">');bRowBegin=true}}for(var i=tdCount;i<TOT_TD_COUNT;i++){if(bRowBegin){className=CAL_LEFT_COLUMN}else{className=CAL_MID_COLUMN}write('<td height="50" class="'+className+'">');write("<div>&nbsp;</div></td>");bRowBegin=false;tdCount++;if(tdCount%7==0){write("</tr>");write('<tr valign="top">');bRowBegin=true}}}}function fnOnCellFocus(obj,newIndex){fnUpdateArrayData();var oldObj=eval("cell"+currIndex);fnSetStyle(oldObj,currIndex,false);fnPopulateCellData(oldObj);fnPopulateHiddenValues();fnPopulateCtrlValues(newIndex);fnSetStyle(obj,newIndex,true);fnSetFocus(newIndex)}function fnUpdateArrayData(){currIndex=parseInt(objForm.currIndex.value,10);holidayInd=objForm.holInd.value;holidayDesc=objForm.holDesc.value;localMthBeginInd=objForm.chklocMthBeginInd.checked?ASTERISK:SPACE;eval("holDtls["+(currIndex-1)+"].holInd = '"+holidayInd.toUpperCase()+"'");eval("holDtls["+(currIndex-1)+"].holDesc = '"+holidayDesc.toUpperCase()+"'");eval("holDtls["+(currIndex-1)+"].locMthBeginInd = '"+localMthBeginInd+"'")}function fnPopulateCellData(b){var a=""+currIndex+SPACE+localMthBeginInd+LINE_BREAK;if(!(fnIsNull(holidayInd))||!(fnIsNull(holidayDesc))||!(fnIsNull(localMthBeginInd))){if(fnIsNull(holidayInd.toUpperCase())){a+="&nbsp;"+LINE_BREAK}else{a+=fnGetHolidayDesc(holidayInd.toUpperCase())+LINE_BREAK}a+=holidayDesc.toUpperCase()+LINE_BREAK}b.innerHTML=a}function fnGetHolidayDesc(a){if(menuName.toUpperCase()!="HCCTM"){switch(a){case"C":return(finbranchResArr.get("FAT001979")).toUpperCase();case"Y":return(finbranchResArr.get("FAT001980")).toUpperCase();case"W":return(finbranchResArr.get("FAT001981")).toUpperCase();default:return SPACE}}else{switch(a){case"W":return(jspResArr.get("FLT018647")).toUpperCase();case"A":return(jspResArr.get("FLT018648")).toUpperCase();case"P":return(jspResArr.get("FLT018649")).toUpperCase();case"X":return(jspResArr.get("FLT018650")).toUpperCase();case"Y":return(jspResArr.get("FLT018651")).toUpperCase();case"H":return(jspResArr.get("FLT018652")).toUpperCase();case"S":return(jspResArr.get("FLT018653")).toUpperCase();default:return SPACE}}}function fnPopulateCtrlValues(a){objForm.holInd.value=holDtls[(a-1)].holInd;objForm.holDesc.value=holDtls[(a-1)].holDesc;if(holDtls[(a-1)].locMthBeginInd==ASTERISK){objForm.chklocMthBeginInd.checked=true;objForm.locMthBeginInd.value=ASTERISK}else{objForm.chklocMthBeginInd.checked=false;objForm.locMthBeginInd.value=SPACE}objForm.currIndex.value=a}function fnSetStyle(g,f,c){var b=parseInt(holDtls[(f-1)].dayOfWeek,10);var h=holDtls[(f-1)].holInd;var a=holDtls[(f-1)].holDesc;var d=holDtls[(f-1)].locMthBeginInd;var e=b==1?CAL_LEFT_COLUMN:CAL_MID_COLUMN;if(c){e+=HIGHLIGHTED}else{if(!(fnIsNull(h))||!(fnIsNull(a))||!(fnIsNull(d))){e+=HIGHLIGHTED_GRAY}}g.className=e}function fnPopulateHiddenValues(){var d="";var a="";var c="";for(var b=0;b<parseInt(holDtls.length,10);b++){d=d+ARR_DELIMITER+holDtls[b].holInd;a=a+ARR_DELIMITER+holDtls[b].holDesc;c=c+ARR_DELIMITER+holDtls[b].locMthBeginInd}objForm.holIndArr.value=d.toUpperCase()+ARR_DELIMITER;objForm.holDescArr.value=a.toUpperCase()+ARR_DELIMITER;objForm.locMthBeginIndArr.value=c+ARR_DELIMITER}function fnSetFocus(a){if(!fnLocCompareDates(a)){if(funcCode.toUpperCase()==Const.ADD_MODE||funcCode.toUpperCase()==Const.MODIFY_MODE||funcCode.toUpperCase()==Const.COPY_MODE||funcCode.toUpperCase()==Const.COPY_TEMPLATE_MODE){objForm.holInd.disabled=false;objForm.holInd.focus()}}else{objForm.holInd.disabled=true;objForm.holDesc.focus()}}function fnLocCompareDates(a){var b=a+DATE_DELIMITER+month+DATE_DELIMITER+year;if(!(fnCompareDates(b,BODDate))){return false}else{return true}}function fnOnButtonClick(btnObj){if(btnObj.id==Const.ACTION_SUBMIT){if(fnValidateMandatoryFields()){fnUpdateArrayData();var oldObj=eval("cell"+currIndex);fnPopulateCellData(oldObj);fnPopulateHiddenValues();doSubmit(btnObj.id)}else{return false}}else{if(btnObj.id==Const.ACTION_BACK){formReset(objForm);document.location.href=jsUtil.formatUrl("../ctm/ctm_ctrl.jsp?mo="+menuName+"&actionCode="+btnObj.id)}else{if(btnObj.id==Const.ACTION_CANCEL){if(!confirm(finbranchResArr.get("FAT000925"))){return false}formReset(objForm);document.location.href=jsUtil.formatUrl("../ctm/ctm_ctrl.jsp?mo="+menuName+"&actionCode="+btnObj.id)}}}return true}function fnLocSetCheckboxFld(objChkCtrl){var objChkCtrlId=objChkCtrl.id;var objChkFld=eval("objForm."+objChkCtrlId.substring(3));if(objChkCtrl.checked){objChkFld.value=ASTERISK}else{objChkFld.value=SPACE}}function getCalTypeDesc(a){if(a.toUpperCase()=="IBR"){return finbranchResArr.get("FAT001961")}else{if(a.toUpperCase()=="BRANCH"){return finbranchResArr.get("FAT000698")}else{if(a.toUpperCase()=="SOLSET"){return finbranchResArr.get("FAT001962")}else{if(a.toUpperCase()=="DC"){return finbranchResArr.get("FAT002494")}else{if(a.toUpperCase()=="CNTRY"){return finbranchResArr.get("FAT001419")}}}}}};
+javascripts/ctm/ctmcrit_link.js:var objForm=null;var bShowAlert=false;function fnOnLoad(){objForm=document.forms[0];initFocusHandler();fnPopulateControlValues();checkRadio(objForm.calType,calType);if(menuName.toUpperCase()=="HBCTM"){objForm.calType.value="DC"}if(menuName.toUpperCase()=="HCCTM"){objForm.calType.value="CNTRY"}fnOnChangeCalType();if(objForm.funcCode.value==Const.COPY_MODE){if(calType.toUpperCase()=="DC"){objForm.toMonth.disabled=false;objForm.toYear.disabled=false}if(!(fnIsNull(brCodeDesc)&&fnIsNull(solIdDesc)&&fnIsNull(cntryCodeDesc))){if((!(fnIsNull(month))&&fnIsValidYear(year))){objForm.funcCode.disabled=true;fnEnableDisableRadioButtons(objForm.calType,"D");if(fnIsNull(toMonth)&&fnIsNull(toYear)&&fnIsNull(toBrCode)&&fnIsNull(toSolId)&&fnIsNull(toCntryCode)){objForm.toMonth.value=objForm.month.value;objForm.toYear.value=objForm.year.value;if(calType.toUpperCase()=="IBR"){objForm.toBrCode.value=brCode;objForm.toBrCodeDesc.value=brCodeDesc}else{if(calType.toUpperCase()=="BRANCH"){objForm.toSolId.value=solId;objForm.toSolIdDesc.value=solId}else{if(calType.toUpperCase()=="CNTRY"){objForm.toCntryCode.value=cntryCode;objForm.toCntryCodeDesc.value=cntryCodeDesc}}}}else{objForm.toMonth.value=toMonth;objForm.toYear.value=toYear;if(calType.toUpperCase()=="IBR"){objForm.toBrCode.value=toBrCode;objForm.toBrCodeDesc.value=toBrCodeDesc}else{if(calType.toUpperCase()=="BRANCH"){objForm.toSolId.value=toSolId;objForm.toSolIdDesc.value=toSolId}else{if(calType.toUpperCase()=="CNTRY"){objForm.toCntryCode.value=toCntryCode;objForm.toCntryCodeDesc.value=toCntryCodeDesc}}}}if(calType.toUpperCase()=="IBR"){objForm.toBrCode.focus()}else{if(calType.toUpperCase()=="BRANCH"){objForm.toSolId.focus()}else{if(calType.toUpperCase()=="CNTRY"){objForm.toCntryCode.focus()}}}}else{objForm.funcCode.focus()}}else{objForm.funcCode.focus()}}else{if(fnIsNull(objForm.funcCode.value)&&fnIsNull(toMonth)&&fnIsNull(toYear)&&fnIsNull(toBrCode)&&fnIsNull(toSolId)&&fnIsNull(toCntryCode)){objForm.funcCode.focus()}else{objForm.Accept.focus()}}if(menuName.toUpperCase()=="HCTI"){objForm.funcCode.value=Const.INQUIRE_MODE;disableFields("funcCode")}}function fnOnButtonClick(a){if(a.id==Const.ACTION_ACCEPT||a.id==Const.ACTION_VALIDATE){if(fnValidateMandatoryFields()){if(validateTypes(objForm)){if(fnValidateCondMandFields()){doSubmit(a.id)}else{return false}}else{return false}}else{return false}}else{if(a.id==Const.ACTION_CLEAR){formReset(objForm);document.location.href=jsUtil.formatUrl("../ctm/ctm_ctrl.jsp?mo="+menuName+"&actionCode="+a.id)}}return true}function fnValidateCondMandFields(){bShowAlert=true;if(!fnIsValidYear(objForm.year.value)){return false}if(getRadioValue(objForm.calType)=="IBR"){if(fnIsNull(objForm.brCode.value)){alert(finbranchResArr.get("FAT000200"));objForm.brCode.focus();return false}}else{if(getRadioValue(objForm.calType)=="BRANCH"){if(fnIsNull(objForm.solId.value)){alert(finbranchResArr.get("FAT000200"));objForm.solId.focus();return false}}else{if(getRadioValue(objForm.calType)=="CNTRY"){if(fnIsNull(objForm.cntryCode.value)){alert(finbranchResArr.get("FAT000200"));objForm.cntryCode.focus();return false}}}}return true}function fnIsValidYear(a){if(isNaN(a)||a.length<4||parseInt(a,10)==0){if(bShowAlert){alert(finbranchResArr.get("FAT000281"));objForm.year.focus()}return false}else{if(parseInt(a,10)<1900||parseInt(a,10)>2099){if(bShowAlert){alert(finbranchResArr.get("FAT002020"));objForm.year.focus()}return false}}return true}function fnOnFuncCodeChange(){return true}function fnOnChangeCalType(){if(getRadioValue(objForm.calType)=="IBR"){objForm.brCode.disabled=false;objForm.solId.disabled=true;objForm.cntryCode.disabled=true;objForm.cntryCode.value="";objForm.cntryCodeDesc.value="";objForm.solId.value="";objForm.solIdDesc.value="";showImage("sLnk2");hideImage("sLnk3");hideImage("sLnk4")}else{if(getRadioValue(objForm.calType)=="BRANCH"){objForm.brCode.disabled=true;objForm.solId.disabled=false;objForm.cntryCode.disabled=true;objForm.cntryCode.value="";objForm.cntryCodeDesc.value="";objForm.brCode.value="";objForm.brCodeDesc.value="";hideImage("sLnk2");hideImage("sLnk4");showImage("sLnk3")}else{if(getRadioValue(objForm.calType)=="CNTRY"){objForm.brCode.disabled=true;objForm.solId.disabled=true;objForm.cntryCode.disabled=false;objForm.brCode.value="";objForm.brCodeDesc.value="";objForm.solId.value="";objForm.solIdDesc.value="";hideImage("sLnk2");hideImage("sLnk3");showImage("sLnk4")}else{if(getRadioValue(objForm.calType)=="DC"||getRadioValue(objForm.calType)==""){objForm.brCode.disabled=true;objForm.solId.disabled=true;objForm.cntryCode.disabled=true;objForm.solId.value="";objForm.brCode.value="";objForm.cntryCode.value="";hideImage("sLnk2");hideImage("sLnk3");hideImage("sLnk4")}}}}return true}function validateCalTblCode(c,b,a){clearDescField(a);if(!fnIsNull(c.value)){doSubmit(b)}}function fnCheckMode(){if(menuName!="HBCTM"&&getRadioValue(objForm.calType)=="DC"&&!(fnIsNull(objForm.funcCode.value)||objForm.funcCode.value==Const.INQUIRE_MODE)){alert(finbranchResArr.get("FAT002495"));return false}return true}function fnPopToMonth(){if(objForm.toMonth!=undefined){objForm.toMonth.value=objForm.month.value}}function fnPopToYear(){if(objForm.toYear!=undefined){objForm.toYear.value=objForm.year.value}}function locShowHelpFile(){var a="";if(menuName.toUpperCase()=="HCTI"){a="cticrit_help.htm"}else{if(menuName.toUpperCase()=="HCCTM"){a="cctmcrit_help.htm"}else{if(menuName.toUpperCase()=="HBCTM"){a="bctmcrit_help.htm"}else{if(menuName.toUpperCase()=="MSCT"){a="msctcrit_help.htm"}else{if(menuName.toUpperCase()=="HCTM"){a="hctmcrit_help.htm"}else{a="sctmcrit_help.htm"}}}}}showHelpFile(a)};
+
+locale/in/javascripts/in_sppm/in_sppmres_link.js:objForm=document.forms[0];function fnLastButtonClick(a){menuName="MLPS";formReset(objForm);document.location.href=jsUtil.formatUrl("../mlps/mlps_ctrl.jsp?mo="+menuName+"&actionCode="+a.id)};
+locale/in/javascripts/in_sppm/in_sppmdet_link.js:objForm=document.forms[0];var crncyCode="INR";var AmountCrncyMap={beginSlabAmt:"crncyCode|N",endSlabAmt:"crncyCode|N"};function fnValidateData(){if(!fnValidateMandatoryFields()){return false}return true}function fnOnButtonClick(a){if(a.id=="Cancel"){if(!(funcCode=="I")){if((funcCode=="V")||(funcCode=="X")){menuName="MLPS";formReset(objForm);document.location.href=jsUtil.formatUrl("../mlps/mlps_ctrl.jsp?mo="+menuName+"&amp;amp;amp;actionCode="+a.id);return true}if((funcCode=="M")||(funcCode=="A")){if(confirm(finbranchResArr.get("FAT000925"))==false){return false}else{menuName="MLPS";formReset(objForm);document.location.href=jsUtil.formatUrl("../mlps/mlps_ctrl.jsp?mo="+menuName+"&amp;amp;amp;actionCode="+a.id)}}}}else{if(a.id=="Submit"){if(fnValidateForm(a)){if(fnValidateMandatoryFields()){jsUtil.submit(a.id,jsUtil.getType().DEFAULT)}return true}}else{if(fnValidateForm(a)){fnOnFormSubmit(a.id)}}}return true}function doSubmit(a){if((funcCode=="I")&&(a=="Back")){menuName="MLPS";formReset(objForm);document.location.href=jsUtil.formatUrl("../mlps/mlps_ctrl.jsp?mo="+menuName+"&amp;amp;amp;actionCode="+a);return true}else{doSubmitLocal(a)}}function doSubmitLocal(a){var b=document.forms[0];if(!fnLocaleValidateForm(a)){return}if(b.submitform!=undefined){b.submitform.value=a}b.actionCode.value=a;enableFormElements();convertToCaps();hideAnchors();disableButtons();b.submit()}function in_sppmdet_post_ONLOAD(){if(funcCode=="M"){fetchSize=totSize;if(sCurrentPos<fetchSize){disableFields("status")}else{enableFields("status");objForm.status.focus()}}if(funcCode=="V"||funcCode=="I"||funcCode=="X"){fnDisableFormControls(objForm);window[multiRecName].disableAddButton()}return true}function fnValidateForm(a){var b=fnIsPageEmpty();if(funcCode=="M"){if(sCurrentPos<fetchSize){disableFields("status")}else{enableFields("status")}}if((funcCode=="A")||(funcCode=="M")){if(!fnValidateMandatoryFields()){return false}if(b&&(sIsOldRecord=="false")){if((a!=window[multiRecName].nextAction)&&(a!=window[multiRecName].addNewAction)){return true}}return fnValidateConditionalData(objForm)}return true}function fnValidateConditionalData(a){if(a.status.value!=""){if(a.beginSlabAmt.value==""){alert(finbranchResArr.get("FAT000200"));a.beginSlabAmt.focus();return false}if(a.endSlabAmt.value==""){alert(finbranchResArr.get("FAT000200"));a.endSlabAmt.focus();return false}if(a.secProvisionPcnt.value==""){alert(finbranchResArr.get("FAT000200"));a.secProvisionPcnt.focus();return false}if(a.unsecProvisionPcnt.value==""){alert(finbranchResArr.get("FAT000200"));a.unsecProvisionPcnt.focus();return false}}if(!fnValidateAmount(a.beginSlabAmt.value,2)){a.beginSlabAmt.focus();return false}if(!fnValidateAmount(a.endSlabAmt.value,2)){a.endSlabAmt.focus();return false}if(!fnIsNull(a.secProvisionPcnt.value)){if((!isNumber(a.secProvisionPcnt.value))||(a.secProvisionPcnt.value.indexOf(" ")!=-1)||(getValInFloat(a.secProvisionPcnt.value)<0)||(getValInFloat(a.secProvisionPcnt.value)>100)||(!fnValidateAmount(a.secProvisionPcnt.value,4))){alert(finbranchResArr.get("FAT000167"));a.secProvisionPcnt.focus();return false}}if(!fnIsNull(a.unsecProvisionPcnt.value)){if((!isNumber(a.unsecProvisionPcnt.value))||(a.unsecProvisionPcnt.value.indexOf(" ")!=-1)||(getValInFloat(a.unsecProvisionPcnt.value)<0)||(getValInFloat(a.unsecProvisionPcnt.value)>100)||(!fnValidateAmount(a.unsecProvisionPcnt.value,4))){alert(finbranchResArr.get("FAT000167"));a.unsecProvisionPcnt.focus();return false}}return true}function fnIsPageEmpty(){var a=false;if(fnIsNull(objForm.status.value)&&fnIsNull(objForm.beginSlabAmt.value)&&fnIsNull(objForm.endSlabAmt.value)&&fnIsNull(objForm.secProvisionPcnt.value)&&fnIsNull(objForm.unsecProvisionPcnt.value)){a=true;objForm.IsPageEmpty.value=a}else{a=false;objForm.IsPageEmpty.value=a}return a}function IN_addLocaleDetRow1(arrObj){var iRecNum=arrObj[0];var bIsCurrRec=arrObj[1];var isrec=arrObj[2];var locStyle="";if(bIsCurrRec=="Y"){locStyle='class="searclist1arow"'}else{if(iRecNum%2==0){locStyle='class="searclist1a"'}else{locStyle='class="searclist2a"'}}with(document){write("<tr "+locStyle+'class="ctext">');write('<td align="left">'+jsUtil.encodeChar(arrObj[2])+"&nbsp;</td>");write('<td align="left">'+jsUtil.encodeChar(arrObj[3])+"&nbsp;</td>");write('<td align="left">'+jsUtil.encodeChar(arrObj[4])+"&nbsp;</td>");write('<td align="left">'+jsUtil.encodeChar(arrObj[5])+"&nbsp;</td>");write('<td align="left">'+jsUtil.encodeChar(arrObj[6])+"&nbsp;</td>");if(isrec!=""){write('<td align="left">'+getYesNoDesc(jsUtil.encodeChar(arrObj[7]),"No")+"</td>")}else{write('<td align="left" width="10%">'+jsUtil.encodeChar(arrObj[7])+"</td>")}write('<td class="leftscroll">&nbsp;</td>');write("</tr>")}};
+locale/in/javascripts/in_ippm/in_ippmres_link.js:objForm=document.forms[0];function fnLastButtonClick(a){menuName="MLPS";formReset(objForm);document.location.href=jsUtil.formatUrl("../mlps/mlps_ctrl.jsp?mo="+menuName+"&actionCode="+a.id)};
+locale/in/javascripts/in_ippm/in_ippmdet_link.js:objForm=document.forms[0];function fnValidateData(){if(!fnValidateMandatoryFields()){return false}return true}function fnOnButtonClick(a){if(a.id=="Cancel"){if(!(funcCode=="I")){if(funcCode=="V"){menuName="MLPS";formReset(objForm);document.location.href=jsUtil.formatUrl("../mlps/mlps_ctrl.jsp?mo="+menuName+"&amp;amp;amp;actionCode="+a.id);return true}if((funcCode=="M")||(funcCode=="A")){if(confirm(finbranchResArr.get("FAT000925"))==false){return false}else{menuName="MLPS";formReset(objForm);document.location.href=jsUtil.formatUrl("../mlps/mlps_ctrl.jsp?mo="+menuName+"&amp;amp;amp;actionCode="+a.id)}}}}else{if(a.id=="Submit"){if(fnValidateForm(a)){if(fnValidateMandatoryFields()){jsUtil.submit(a.id,jsUtil.getType().DEFAULT)}return true}}else{if(fnValidateForm(a)){fnOnFormSubmit(a.id)}}}return true}function doSubmit(a){if((funcCode=="I")&&(a=="Back")){menuName="MLPS";formReset(objForm);document.location.href=jsUtil.formatUrl("../mlps/mlps_ctrl.jsp?mo="+menuName+"&amp;amp;amp;actionCode="+a);return true}else{doSubmitLocal(a)}}function doSubmitLocal(a){var b=document.forms[0];if(!fnLocaleValidateForm(a)){return}if(b.submitform!=undefined){b.submitform.value=a}b.actionCode.value=a;enableFormElements();convertToCaps();hideAnchors();disableButtons();b.submit()}function in_ippmdet_post_ONLOAD(){if(funcCode=="M"){fetchSize=totSize;if(sCurrentPos<fetchSize){disableFields("sectorCode","subSectorCode");hideImage("sLnk2");hideImage("sLnk3")}else{enableFields("sectorCode","subSectorCode");showImage("sLnk2");showImage("sLnk3")}}disableFields("sectorCodeDesc","subSectorCodeDesc");if(funcCode=="V"||funcCode=="I"||funcCode=="X"){fnDisableFormControls(objForm);hideImage("sLnk2");hideImage("sLnk3");window[multiRecName].disableAddButton()}return true}function fnValidateForm(a){var b=fnIsPageEmpty();if(funcCode=="M"){if(sCurrentPos<fetchSize){disableFields("sectorCode","subSectorCode");hideImage("sLnk2");hideImage("sLnk3")}else{enableFields("sectorCode","subSectorCode");showImage("sLnk2");showImage("sLnk3")}}if((funcCode=="A")||(funcCode=="M")){if(!fnValidateMandatoryFields()){return false}if(b&&(sIsOldRecord=="false")){if((a!=window[multiRecName].nextAction)&&(a!=window[multiRecName].addNewAction)){return true}}return fnValidateConditionalData(objForm)}return true}function fnValidateConditionalData(a){if(a.sectorCode.value!=""){if(a.subSectorCode.value==""){alert(finbranchResArr.get("FAT000200"));a.subSectorCode.focus();return false}if(a.provisionPcnt.value==""){alert(finbranchResArr.get("FAT000200"));a.provisionPcnt.focus();return false}}if(a.subSectorCode.value!=""){if(a.sectorCode.value==""){alert(finbranchResArr.get("FAT000200"));a.sectorCode.focus();return false}if(a.provisionPcnt.value==""){alert(finbranchResArr.get("FAT000200"));a.provisionPcnt.focus();return false}}if(a.provisionPcnt.value!=""){if(a.sectorCode.value==""){alert(finbranchResArr.get("FAT000200"));a.sectorCode.focus();return false}if(a.subSectorCode.value==""){alert(finbranchResArr.get("FAT000200"));a.subSectorCode.focus();return false}}if(!fnIsNull(a.provisionPcnt.value)){if((!isNumber(a.provisionPcnt.value))||(a.provisionPcnt.value.indexOf(" ")!=-1)||(getValInFloat(a.provisionPcnt.value)<0)||(getValInFloat(a.provisionPcnt.value)>100)||(!fnValidateAmount(a.provisionPcnt.value,4))){alert(finbranchResArr.get("FAT000167"));a.provisionPcnt.focus();return false}}clearDescField("sectorCodeDesc");clearDescField("subSectorCodeDesc");return true}function executeOnChange(a){if(a.id=="sectorCode"){clearDescField("sectorCodeDesc")}if(a.id=="subSectorCode"){clearDescField("subSectorCodeDesc")}return true}function fnIsPageEmpty(){var a=false;if(fnIsNull(objForm.sectorCode.value)&&fnIsNull(objForm.subSectorCode.value)&&fnIsNull(objForm.provisionPcnt.value)){a=true;objForm.IsPageEmpty.value=a}else{a=false;objForm.IsPageEmpty.value=a}return a}function IN_addLocaleDetRow1(arrObj){var iRecNum=arrObj[0];var bIsCurrRec=arrObj[1];var isrec=arrObj[2];var locStyle="";if(bIsCurrRec=="Y"){locStyle='class="searclist1arow"'}else{if(iRecNum%2==0){locStyle='class="searclist1a"'}else{locStyle='class="searclist2a"'}}with(document){write("<tr "+locStyle+'class="ctext">');write('<td align="left">'+jsUtil.encodeChar(arrObj[2])+"&nbsp;</td>");write('<td align="left">'+jsUtil.encodeChar(arrObj[3])+"&nbsp;</td>");write('<td align="left">'+jsUtil.encodeChar(arrObj[4])+"&nbsp;</td>");if(isrec!=""){write('<td align="left">'+getYesNoDesc(jsUtil.encodeChar(arrObj[5]),"No")+"</td>")}else{write('<td align="left" width="10%">'+jsUtil.encodeChar(arrObj[5])+"</td>")}write('<td class="leftscroll">&nbsp;</td>');write("</tr>")}};
+
+SCM area---
+
+custlocjsgen/javascripts/in_ippmres_link.js:            document.location.href= jsUtil.formatUrl("../mlps/mlps_ctrl.jsp?mo=" + menuName + "&actionCode=" + btnObj.id);
+custlocjsgen/javascripts/in_sppmres_link.js:            document.location.href= jsUtil.formatUrl("../mlps/mlps_ctrl.jsp?mo=" + menuName + "&actionCode=" + btnObj.id);
+custlocjsgen/javascripts/in_ippmdet_link.js:                            document.location.href= jsUtil.formatUrl("../mlps/mlps_ctrl.jsp?mo=" + menuName + "&amp;amp;amp;actionCode=" + btnObj.id);
+custlocjsgen/javascripts/in_ippmdet_link.js:                                    document.location.href= jsUtil.formatUrl("../mlps/mlps_ctrl.jsp?mo=" + menuName + "&amp;amp;amp;actionCode=" + btnObj.id);
+custlocjsgen/javascripts/in_ippmdet_link.js:            document.location.href= jsUtil.formatUrl("../mlps/mlps_ctrl.jsp?mo=" + menuName + "&amp;amp;amp;actionCode=" + id);
+custlocjsgen/javascripts/in_sppmdet_link.js:                            document.location.href= jsUtil.formatUrl("../mlps/mlps_ctrl.jsp?mo=" + menuName + "&amp;amp;amp;actionCode=" + btnObj.id);
+custlocjsgen/javascripts/in_sppmdet_link.js:                                    document.location.href= jsUtil.formatUrl("../mlps/mlps_ctrl.jsp?mo=" + menuName + "&amp;amp;amp;actionCode=" + btnObj.id);
+custlocjsgen/javascripts/in_sppmdet_link.js:            document.location.href= jsUtil.formatUrl("../mlps/mlps_ctrl.jsp?mo=" + menuName + "&amp;amp;amp;actionCode=" + id);
+
+-----Revisit----
+
+javascripts/iftc/iftcfingoals_link.js:var objForm=null;var pathArray=window.location.href.split("/");var protocol=pathArray[0];var host=pathArray[2];var hostURL=protocol+"//"+host;var toolURL=null;function fnOnLoad(){objForm=document.forms[0];return true}function fnOnButtonClick(a){if(a.id=="Close"){window.close()}}function retirementGoals(){var a="/GoalPlanningTools/GoalPlanningTools.jsp?tool=RetirementPlanning&category=planning&offerName=CASA001&locale=en-us";toolURL=hostURL+a;toolWindow(toolURL,"RetirementGoals")}function educationGoals(){var a="/GoalPlanningTools/GoalPlanningTools.jsp?tool=EducationPlanning&category=planning&offerName=CASA001&locale=en-us";toolURL=hostURL+a;toolWindow(toolURL,"EducationGoals")}function lifestyleGoals(){var a="/GoalPlanningTools/GoalPlanningTools.jsp?tool=LifestylePlanning&category=planning&offerName=CASA001&locale=en-us";toolURL=hostURL+a;toolWindow(toolURL,"LifestyleGoals")}function show(){};
+javascripts/outclginstr/outclginstr_criteria_link.js:var err=new ErrObject("","");var secondPartVisible=false;var secondPartRef="";function fnOnLoad(){objForm=document.forms[0];fnPopulateControlValues();initFocusHandler();checkRadio(objForm.instrEncoded,instrEncoded);checkRadio(objForm.instrVerify,instrVerify);setValue("instrStat",instrstat);secondPartRef=eval("document.getElementById('secondPartLayer')");document.forms[0].zoneCode.focus();if(document.forms[0].billBankCode.value==""){document.forms[0].billBankCode.value=homeBankCode;document.forms[0].billExCounter.value="00"}newformatAmt(format,objForm.instrAmtFrom,crncyCode,"N");newformatAmt(format,objForm.instrAmtTo,crncyCode,"N")}function fnValidateForm(){var a=document.forms[0];if(!fnValidateMandatoryFields()){return false}if(!validateTypes(a)){err.displayErr();return false}if((!fnCompareAmount(a.instrAmtFrom.value,a.instrAmtTo.value))&&(a.instrAmtFrom.value!="")&&(a.instrAmtTo.value!="")){err.setErr(a.instrAmtFrom,finbranchResArr.get("FAT000664"));err.displayErr();return false}if((a.acNumFrom.value>a.acNumTo.value)&&(a.acNumFrom.value!="")&&(a.acNumTo.value!="")){err.setErr(a.acNumFrom,finbranchResArr.get("FAT000665"));err.displayErr();return false}if((a.tranCodeFrom.value>a.tranCodeTo.value)&&(a.tranCodeFrom.value!="")&&(a.tranCodeTo.value!="")){err.setErr(a.tranCodeFrom,finbranchResArr.get("FAT000666"));err.displayErr();return false}if((a.setId.value=="ALL")&&(a.zoneDate.value=="")&&(a.zoneCode.value=="")&&(a.instrNum.value=="")&&(a.instrAmtFrom.value=="")&&(a.bankCode.value=="")&&(a.branchCode.value=="")){err.setErr(a.setId,finbranchResArr.get("FAT000667"));err.displayErr();return false}if((!fnIsNull(a.billId.value))||(!fnIsNull(a.billBrCode.value))){if(fnIsNull(a.billId.value)){alert(finbranchResource.FAT000200);document.forms[0].billId.focus();return false}if(fnIsNull(a.billBrCode.value)){alert(finbranchResource.FAT000200);document.forms[0].billBrCode.focus();return false}if(fnIsNull(a.billBankCode.value)){alert(finbranchResource.FAT000200);document.forms[0].billBankCode.focus();return false}if(fnIsNull(a.billExCounter.value)){alert(finbranchResource.FAT000200);document.forms[0].billExCounter.focus();return false}if((fnIsNull(a.instrAmtFrom.value))&&(fnIsNull(a.instrAmtTo.value))){alert(finbranchResource.FAT000200);document.forms[0].instrAmtTo.focus();return false}}if((a.branchCode.value!="")&&(a.sortCode.value!="")){err.setErr(a.branchCode,finbranchResArr.get("FAT000668"));err.displayErr();return false}if(!fnCheckAmt()){return false}disableButtons();return true}function fnCheckAmt(){var b=document.forms[0];var a=getPrec(crncyCode.value);if(!fnValidateAmount(b.instrAmtFrom.value,a)){b.instrAmtFrom.focus();return false}if(!fnValidateAmount(b.instrAmtTo.value,a)){b.instrAmtTo.focus();return false}if(b.instrAmtFrom.value!=""){if(getAmtInInt(b.instrAmtFrom.value)<0){err.setErr(b.instrAmtFrom,finbranchResArr.get("FAT000927"));err.displayErr();return false}}if(b.instrAmtTo.value!=""){if(getAmtInInt(b.instrAmtTo.value)<=0){err.setErr(b.instrAmtTo,finbranchResArr.get("FAT000928"));err.displayErr();return false}}return true}function fnOnButtonClick(a){convertToCaps();if(a.id=="Cancel"){formReset(document.forms[0]);checkRadio(objForm.instrEncoded,instrEncoded);checkRadio(objForm.instrVerify,instrVerify);document.forms[0].submitform.value=a.id;document.forms[0].submit();return}if(!fnValidateForm()){return false}document.forms[0].submitform.value="Submit";disableHyperLnks(15);document.forms[0].submit();return true}function showMoreDetails(){if(!secondPartVisible){secondPartLayer.style.visibility="visible";secondPartVisible=true}document.location.href="#second_part"}function fnCompareAmount(b,a){var b=getAmtInStdFormat(b);var a=getAmtInStdFormat(a);var d=0;var c=0;d=b.indexOf(DEF_DECIMAL_SEPARATOR);c=a.indexOf(DEF_DECIMAL_SEPARATOR);if(d<c){b=fnLpad(b,(c-d))}else{a=fnLpad(a,(d-c))}if(b>a){return false}else{return true}}function fnLpad(b,a){for(i=1;i<=a;i++){b="0"+b}return b}function fndefault(b){var c=document.forms[0];var a=getPrec(crncyCode.value);if(!fnValidateAmount(c.instrAmtFrom.value,a)){c.instrAmtFrom.focus();return false}newformatAmt(format,c.instrAmtFrom,crncyCode,"N");if(!isNaN(getAmtInStdFormat(document.forms[0].instrAmtFrom.value))){if(getAmtInInt(c.instrAmtFrom.value)<0){err.setErr(c.instrAmtFrom,finbranchResArr.get("FAT000927"));err.displayErr();return}if(c.instrAmtFrom.value!=""){c.instrAmtTo.value=b;newformatAmt(format,c.instrAmtTo,crncyCode,"N")}}}function fnCheck(a){var b=document.forms[0];if(!isNaN(getAmtInStdFormat(document.forms[0].instrAmtTo.value))){if(getAmtInInt(b.instrAmtTo.value)<=0){err.setErr(b.instrAmtTo,finbranchResArr.get("FAT000928"));err.displayErr();return}}}function fndefaultAccount(a){var b=document.forms[0];if(!fnIsNull(b.acNumFrom.value)&&fnIsNull(b.acNumTo.value)){b.acNumTo.value=a;b.acctToDesc.value=b.acctFromDesc.value;b.acctTosolId.value=b.acctFromsolId.value;b.acctTocrcyDesc.value=b.acctFromcrcyDesc.value}}function fnCheckForAlphaNum(a){var b=/[^A-Za-z0-9]/;if(b.test(a)){alert(finbranchResArr.get("FAT000485"));if(a==document.forms[0].tranCodeFrom.value){document.forms[0].tranCodeFrom.focus()}else{document.forms[0].tranCodeTo.focus()}return false}return true}function fnOnChangeInstrmntNum(){if(!fnIsNull(objForm.instrNum.value)){objForm.instrNum.value=Number(objForm.instrNum.value)}}function fnShowDetails(){var g=document.forms[0].bankCode.value;var f=document.forms[0].branchCode.value;document.forms[0].BankName.value="";document.forms[0].BranchName.value="";g=(!isEmptyObjValue(g))?g.toUpperCase():"";f=(!isEmptyObjValue(f))?f.toUpperCase():"";if(!fnIsNull(f)&&fnIsNull(g)){alert(finbranchResArr.get("FAT000126"));document.forms[0].branchCode.value="";document.forms[0].bankCode.focus();return false}var e="bankCode|"+g+"|branchCode|"+f;var d="";var h="";h=appFnExecuteScript(e,d,"getBankAndBranchName.scr",false);if(!fnIsNull(h)){var b=h.split("|");var c=b[1];var a=b[3];if((!fnIsNull(f)&&fnIsNull(a))||(!fnIsNull(g)&&fnIsNull(c))){alert(finbranchResArr.get("FAT005734"));return false}document.forms[0].BankName.value=c;document.forms[0].BranchName.value=a}return true};
+javascripts/ftc/ftcfingoals_link.js:var objForm=null;var pathArray=window.location.href.split("/");var protocol=pathArray[0];var host=pathArray[2];var hostURL=protocol+"//"+host;var toolURL=null;function fnOnLoad(){objForm=document.forms[0];return true}function fnOnButtonClick(a){if(a.id=="Close"){window.close()}}function retirementGoals(){var a="/GoalPlanningTools/GoalPlanningTools.jsp?tool=RetirementPlanning&category=planning&offerName=CASA001&locale=en-us";toolURL=hostURL+a;toolWindow(toolURL,"RetirementGoals")}function educationGoals(){var a="/GoalPlanningTools/GoalPlanningTools.jsp?tool=EducationPlanning&category=planning&offerName=CASA001&locale=en-us";toolURL=hostURL+a;toolWindow(toolURL,"EducationGoals")}function lifestyleGoals(){var a="/GoalPlanningTools/GoalPlanningTools.jsp?tool=LifestylePlanning&category=planning&offerName=CASA001&locale=en-us";toolURL=hostURL+a;toolWindow(toolURL,"LifestyleGoals")}function show(){};
+javascripts/foiq/foiq_criteria_link.js:var err=new ErrObject("","");var secondPartVisible=false;var secondPartRef="";function fnOnLoad(){initFocusHandler();objForm=document.forms[0];fnPopulateControlValues();checkRadio(objForm.instrVerify,instrVerify);checkRadio(objForm.setReplayed,setReplayed);secondPartRef=eval("document.getElementById('secondPartLayer')")}function fnValidateForm(){var a=document.forms[0];if(!fnValidateMandatoryFields()){return false}if(!validateTypes(a)){err.displayErr();return false}if((!fnCompareAmount(a.instrAmtFrom.value,a.instrAmtTo.value))&&(a.instrAmtFrom.value!="")&&(a.instrAmtTo.value!="")){err.setErr(a.instrAmtFrom,finbranchResArr.get("FAT000664"));err.displayErr();return false}if((a.acNumFrom.value>a.acNumTo.value)&&(a.acNumFrom.value!="")&&(a.acNumTo.value!="")){err.setErr(a.acNumFrom,finbranchResArr.get("FAT000665"));err.displayErr();return false}if((a.tranCodeFrom.value>a.tranCodeTo.value)&&(a.tranCodeFrom.value!="")&&(a.tranCodeTo.value!="")){err.setErr(a.tranCodeFrom,finbranchResArr.get("FAT000666"));err.displayErr();return false}if((a.setId.value=="ALL")&&(a.zoneDate.value=="")&&(a.zoneCode.value=="")&&(a.setNum.value=="")&&(a.instrNum.value=="")&&(a.instrAmtFrom.value=="")&&(a.bankCode.value=="")&&(a.branchCode.value=="")){err.setErr(a.setId,finbranchResArr.get("FAT000667"));err.displayErr();return false}if((a.branchCode.value!="")&&(a.sortCode.value!="")){err.setErr(a.branchCode,finbranchResArr.get("FAT000668"));err.displayErr();return false}disableButtons();return true}function fnOnButtonClick(a){convertToCaps();if(a.id=="Clear"){formReset(document.forms[0]);checkRadio(document.forms[0].setReplayed,"");checkRadio(document.forms[0].instrVerify,"");return}if(!fnValidateForm()){return false}document.forms[0].submitform.value="Submit";disableHyperLnks(14);document.forms[0].submit();return true}function showMoreDetails(){if(!secondPartVisible){secondPartLayer.style.visibility="visible";secondPartVisible=true}document.location.href="#second_part"}function fnCompareAmount(b,a){var b=getAmtInStdFormat(b);var a=getAmtInStdFormat(a);var d=0;var c=0;d=b.indexOf(".");c=a.indexOf(".");if(d<c){b=fnLpad(b,(c-d))}else{a=fnLpad(a,(d-c))}if(b>a){return false}else{return true}}function fnLpad(b,a){for(i=1;i<=a;i++){b="0"+b}return b}function fndefault(a){var b=document.forms[0];if(!isNaN(getAmtInStdFormat(document.forms[0].instrAmtFrom.value))){if(getAmtInInt(b.instrAmtFrom.value)<0){err.setErr(b.instrAmtFrom,finbranchResArr.get("FAT000927"));err.displayErr();return}if(b.instrAmtFrom.value!=""){b.instrAmtTo.value=a}}}function fnCheck(a){var b=document.forms[0];if(!isNaN(getAmtInStdFormat(document.forms[0].instrAmtTo.value))){if(getAmtInInt(b.instrAmtTo.value)<=0){err.setErr(b.instrAmtTo,finbranchResArr.get("FAT000928"));err.displayErr();return}}}function fndefaultAccount(a){var b=document.forms[0];if(b.acNumFrom.value!=""){b.acNumTo.value=a}};
+
+common_functions.js : getClient_ip()
+
+cd[vasuda][FC104X1G18BG25]/finacle/fincore/v10.4X1G18G25/sourcebay/base/common/ui/frontend> grep -irs "getClient_ip" *
+javascripts/crv_common_functions.js:function getClient_ip(SSO,SSODomName)
+javascripts/common_functions.js:function getClient_ip(SSO,SSODomName)
+src/FinRouter.java:             out.println("<html><body onLoad=\"getClient_ip("+SSO+","+"'"+SSODomName+"')\">");
+src/CrvRouter.java:             out.println("<html><body onLoad=\"getClient_ip("+SSO+","+"'"+SSODomName+"')\">");
+
+help_link.js: 
+
+[NEO10225]/app1/NEO10225/FE/PROFILE/NEO10225PROFILE/installedApps/NEO10225Cell/finbranch_war.ear/finbranch.war -> .js" * <
+helpfiles/INFENG/tran_inquiry_help.htm:         src="../../javascripts/help_link.js"></script>
+helpfiles/INFENG/transfer_transaction_help.htm:         src="../../javascripts/help_link.js"></script>
+helpfiles/INFENG/offline_debit_limit.htm:               src="../javascripts/help_link.js"></script>
+helpfiles/INFENG/tdflwdet1_help.htm:            src="../../javascripts/help_link.js"></script>
+
+it contains isPopup=Y
+
+
+
+archie:
+-------
+submitInPost() to replace document.location.href
+
+javascripts/custom_header_link.js:
+
+function fnCallMainMenu() {
+    
+            var url = strBaseRef + finContextPath + "/MainMenu.jsp";
+            
+            document.location.href = jsUtil.formatUrl(url);
+    }
+    
+    function fnCallHome(){
+            document.location.href = jsUtil.formatUrl(strHomeUrl);
+    }
+
+header_link.js
+
+function fnBacktoLandingPage() {
+    var baseHref = strBaseRef + finContextPath + "/";
+    var landingpageUrl= baseHref + "onsmainblank/onsmainblank_ctrl.jsp";
+    document.location.href= landingpageUrl+'?sessionid='+sessionid+'&sectok='+sectok+'&finsessionid='+finsessionid+'&fabsessionid='+fabsessionid+'&rtId='+rtId+'&reqId='+reqId+'&mo=HOME';
+}
+
+
+javascripts/signature/applet_glink.js:function printBlock(){writeHeader("applet");with(document){write("<input type=hidden name="+sGroupName+".submitform id=submitform>");document.onkeydown=KeyDownHandler;document.onmousedown=MouseHandler;if(DisablePrntScrn()!=0){alert(jspRes.FAT000632);window.close()}else{write('<applet code="FormApplet" archive="ilinkcgi.jar" codebase="../imageapplet" width=650 height=750>');write('<param name="url" value="http://'+sUrl+'/cgi-bin/imageinterface_fab.cgi">');write('<param name="data" value="'+sData+'" >');write("</applet>")}write('<table class="ctable" width="100%">');write('<td align="right" width="50%" valign="top">&nbsp;');write('<input id="Cancel" class="button" type="Button" value="'+jspResArr.get("FLT003328")+'" onCLick="javascript:return applet_ONCLICK3(this);" hotKeyId="Cancel" >');write("</td>");if(SHOWIMAGE==sAction.toUpperCase()){write('<td border="0" class="ctext" width="50%" align="right" valign="top">');write('<a id="anc_back" href="javascript:document.location.href='+returnPath+'" hotKeyId="Cancel" >'+jspResArr.get("FLT003327")+"</a>");write("</td>")}else{if(!fnIsNull(fromOtherGroup)){write('<td border="0" class="ctext" width="50%" align="right" valign="top">');write('<a id="anc_btil" href="javascript:fnChangePage('+SRLPAGEACTION+');">'+jspResArr.get("FLT003519")+"</a>");write("</td>")}}if("WORKFLOW"==mode.toUpperCase()){write('<td class="ctext" width="50%" align="right" valign="top">');write('<a id="anc_cont" href='+returnPath+" > "+jspResArr.get("FLT003426")+"</a>");write("</td>")}write("</table>")}}function applet_ONKEYDOWN1(b,c){var a="";if(preEventCall("applet",b,"ONKEYDOWN")==false){return false}if((a=fnKeyDownProcessor(c))==false){return false}if(postEventCall("applet",b,"ONKEYDOWN")==false){return false}return(a==undefined)?true:a}function applet_ONKEYUP2(b,c){var a="";if(preEventCall("applet",b,"ONKEYUP")==false){return false}if((a=fnKeyUpProcessor(c))==false){return false}if(postEventCall("applet",b,"ONKEYUP")==false){return false}return(a==undefined)?true:a}function applet_ONCLICK3(b){var a="";if(preEventCall("applet",b,"ONCLICK")==false){return false}if((a=window.close())==false){return false}if(postEventCall("applet",b,"ONCLICK")==false){return false}return(a==undefined)?true:a};
+
+javascripts/common_functions.js
+
+1. 
+if (frm.submitform != undefined) {
+    document.location.href = jspAction + "&submitform=" + actionValue;
+}
+else
+{
+    document.location.href = jspAction;
+}
+
+2.
+replaceLocation : function(sUrl) {
+    document.location.href = jsUtil.formatUrl(sUrl);
+    return true;
+    },
+
+3.
+function onClickAssignRtrnPath(path){
+    setActionForWorkflow();
+        document.location.href = path;
+}
+
+4.
+function refreshScreen()
+{
+        var frm = document.forms[0];
+        if(frm.groupName != undefined)
+                document.location.href = frm.screenName.value + "_ctrl.jsp?rtId="+rtId;
+
+
+login_common_functions.js
+
+1. 
+if (frm.submitform != undefined) {
+    document.location.href = jspAction + "&submitform=" + actionValue;                           
+}
+else
+{
+    document.location.href = jspAction;
+}
+
+2. 
+replaceLocation : function(sUrl) {
+    document.location.href = jsUtil.formatUrl(sUrl);
+    return true;
+},
+
+3.
+function refreshScreen()									
+{
+    var frm = document.forms[0];
+        if(frm.groupName != undefined)
+                document.location.href = frm.screenName.value + "_ctrl.jsp?rtId="+rtId;
+
+
+4. javascripts/customize_functions.js
+include isPopup=Y explicitly as part of the url
+ 

@@ -1,0 +1,84 @@
+javascripts/fcumm_resultpage_link.js:  document.location.href= jsUtil.formatUrl(returnPath);
+		this has to be fixed
+
+javascripts/inwclgreplay_inc.js:        document.location.href = jsUtil.formatUrl('<arjsp:return defaultPath="../repiwc/repiwc_ctrl.jsp"/>');
+		this has to be fixed
+
+javascripts/custom_header_link.js:      document.location.href = jsUtil.formatUrl(url);	 
+		this has to be fixed 
+javascripts/custom_header_link.js:      document.location.href = jsUtil.formatUrl(strHomeUrl);
+		this has to be fixed 
+
+javascripts/stoppayment_inc.js:        document.location.href = jsUtil.formatUrl("<arjsp:return defaultPath="stoppayment_ctrl.jsp"/>");
+	this has to be fixed 
+javascripts/stoppayment_inc.js:       document.location.href = jsUtil.formatUrl("<arjsp:return defaultPath="stoppayment_ctrl.jsp"/>");
+	this has to be fixed 
+
+javascripts/iftcfingoals_link.js:var pathArray = window.location.href.split( '/' );
+	this has to be fixed
+
+javascripts/ftcfingoals_link.js:var pathArray = window.location.href.split( '/' );
+	this has to be fixed
+
+javascripts/loan_criteria_link.js:      document.location.href="#second_part";
+
+javascripts/fopacopres_link.js:         document.location.href=jsUtil.formatUrl(returnPath);
+	this has to be fixed.
+
+javascripts/revokepayment_inc.js:      document.location.href = jsUtil.formatUrl("<arjsp:return defaultPath="revokepayment_ctrl.jsp"/>");
+	this has to be fixed.
+
+javascripts/ddpayment_inc.js:       document.location.href = jsUtil.formatUrl("<arjsp:return defaultPath="ddpayment_ctrl.jsp"/>");
+	this has to be fixed.
+
+javascripts/lockMain.js:        parent.location.href = jsUtil.formatUrl(menuLink);
+	to be fixed
+javascripts/lockMain.js:        parent.location.href = jsUtil.formatUrl("CMSGNmn007.jsp");
+	to be fixed.
+	
+javascripts/customize_functions.js:      parent.Bottom_Frame.location.href = "";
+javascripts/customize_functions.js:         parent.Bottom_Frame.location.href = sUrl;
+	above both has to be fixed
+	
+javascripts/common_functions.js:        document.location.href = jspAction;
+	to be fixed
+	
+javascripts/common_functions.js:         document.location.href = frm.screenName.value + "_ctrl.jsp?rtId="+rtId;
+	to be fixed
+	
+javascripts/common_functions.js:        var url = window.location.href;
+	to be fixed can be modified to POST
+	
+javascripts/paintUnifiedview.js:        document.location.href=jsUtil.formatUrl(url);
+	to be fixed 
+	
+	
+javascripts/foiq_criteria_link.js:      document.location.href="#second_part";
+javascripts/outclginstr_criteria_link.js:       document.location.href="#second_part";
+	to be revisited
+	
+javascripts/common_functions.js:                document.location.href = jsUtil.formatUrl(sUrl);
+	to be revisited
+	
+javascripts/common_functions.js:        var location = document.location.href;
+	to be revisited
+
+javascripts/common_functions.js:           document.location.href = path;
+	to be revisited
+	
+javascripts/login_common_functions.js:      document.location.href = jsUtil.formatUrl(sUrl);
+	to be revisited
+	
+javascripts/eHlpDhtm.js:                getPopupIFrame(nIndex).location.href = strURL;
+	to be revisited
+javascripts/header_link.js:     var location = document.location.href;
+javascripts/header_link.js:    document.location.href= landingpageUrl+'?sessionid='+sessionid+'&sectok='+sectok+'&finsessionid='+finsessionid+'&fabsessionid='+fabsessionid+'&rtId='+rtId+'&reqId='+reqId+'&mo=HOME';
+	to be revisited
+
+
+
+18=to be fixed
+7=revisited
+
+
+

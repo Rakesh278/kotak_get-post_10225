@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+
+<web-app>
+	<display-name>ONS</display-name>
+          <distributable/> 
+	<!-- Uncomment the below piece of code for multiple instances and specify contextRoot of the instance for param-value
+    -->
+    <!-- Remove this comment for multiple instances
+    <context-param>
+        <param-name>AppName</param-name>
+        <param-value>finbranch</param-value>
+    </context-param>
+    end of comment-->
+	<!--
+	The XSS check is done for value of parameter RESTRICT_LIST, which is the list of comma(,) 
+	seperated strings to be validated for. <script, </script, <plaintext, <img, <meta, <style, </style, <iframe
+
+	The < is placed &lt; as < is a special character for xml. Also comma(,) is taken as the delimiter 
+	for the restricted strings.
+
+	The Security checks for XSS, CSRF, Session Invalidation will only happen if value of parameter 
+	SECURE_CHECK_REQD is given as Y.
+	-->
+	<filter> 
+		 <filter-name>Secure-Filter</filter-name>   
+		 <filter-class>com.infy.finacle.fcutil.SecureFilter</filter-class>   
+		 <init-param>
+		 	<param-name>RESTRICT_LIST</param-name>
+		 	<param-value>&lt;script,&lt;/script,&lt;plaintext,&lt;img,&lt;meta,&lt;style,&lt;/style,&lt;iframe,:expression,style=,javascript:</param-value>
+		 </init-param>
+		 <init-param>
+		        <param-name>HTML_TAG_LIST</param-name>
+			<param-value>script,plaintext,img,meta,style,iframe,table,tr,td,input,body,frame,frameset,head,html,a,font,applet,form,br,address,area,base,basefont,big,blockquote,br,b,caption,center,cite,code,dd,dfn,dir,dl,dt,em,h1,h2,h3,h4,h5,h6,hr,isindex,i,kbd,link,li,map,menu,ol,option,param,pre,p,samp,select,small,strike,strong,sub,sup,textarea,th,title,tt,ul,u,var,video,source,object,embedded,article,aside,audio,bdi,canvas,datalist,details,dialog,embed,figcaption,figure,footer,header,keygen,main,mark,menuitem,meter,nav,output,picture,progress,rp,rt,ruby,section,source,summary,time,track,wbr,abbr,acronym,button,col,colgroup,del,div,fieldset,ins,label,legend,noframes,noscript,optgroup,q,s,span,tbody,tfoot,thead,marquee</param-value>
+	 	</init-param>
+		<init-param>
+			<param-name>SECURE_PERMIT_LIST</param-name>
+            <param-value>--select--</param-value>
+        </init-param>
+		<init-param>   
+			<param-name>REQID_VALIDATION_REQD</param-name>   
+			<param-value>Y</param-value>   
+		</init-param>   
+		<init-param>
+			<param-name>SECURE_CHECK_REQD</param-name>
+			<param-value>Y</param-value>
+		</init-param>
+		<init-param>
+		    <param-name>SQL_CHECK_REQD</param-name>
+			<param-value>N</param-value>
+	 	</init-param>
+		<init-param>
+			<param-name>CONTROL_CHARACTER_VALIDATION_REQD</param-name>
+			<param-value>Y</param-value>
+		</init-param>
+		<init-param>
+			<param-name>XSS_SQL_LOG_ONLY</param-name>
+			<param-value>N</param-value>
+		</init-param>
+		<init-param>
+			<param-name>SECURE_FILTER_DEBUG</param-name>
+			<param-value>N</param-value>
+		</init-param>	
+		<init-param>
+		 	<param-name>HTTPMETHOD_CHECK_REQD</param-name>
+		 	<param-value>Y</param-value>
+		 </init-param>		
+	 </filter> 
+
+	<filter>
+		<filter-name>Compression-Filter</filter-name>
+		<filter-class>compressionFilters.CompressionFilter</filter-class>
+	</filter>
+
+	<!-- following filter, filter-mapping can be enabled for env with SSLOffloading -->
+	 <!-- If SSL Offloading done, remove this line ..
+
+	<filter>
+			<filter-name>SSLOffloadingReqHdrCorrectionFilter</filter-name>
+			<display-name>SSLOffloadingReqHdrCorrectionFilter</display-name>
+			<description>filter for correcting the request header to https in case of SSL Offloading</description>
+			<filter-class>applcommon.SSLOffloadingReqHdrCorrectionFilter</filter-class>
+	</filter>
+	<filter-mapping>
+			<filter-name>SSLOffloadingReqHdrCorrectionFilter</filter-name>
+			<url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+
+	 Remove line for SSL Offloading env -->
+
+	<filter-mapping> 
+		 <filter-name>Secure-Filter</filter-name>   
+		 <url-pattern>*.jsp</url-pattern>   
+	 </filter-mapping> 
+	
+	<filter-mapping>
+                 <filter-name>Secure-Filter</filter-name>
+                 <url-pattern>/lmlServlet/*</url-pattern>
+        </filter-mapping>
+
+	<filter-mapping>
+		<filter-name>Secure-Filter</filter-name>
+		<url-pattern>*.html</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>Secure-Filter</filter-name>
+		<url-pattern>*.htm</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>Secure-Filter</filter-name>
+		<url-pattern>/DeviceRenderer/*</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>Compression-Filter</filter-name>
+		<url-pattern>*.htm</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+                <filter-name>Compression-Filter</filter-name>
+                <url-pattern>*.html</url-pattern>
+        </filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>Compression-Filter</filter-name>
+		<url-pattern>*.js</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>Compression-Filter</filter-name>
+		<url-pattern>*.css</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>Compression-Filter</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>Secure-Filter</filter-name>
+	    <url-pattern>*.jar</url-pattern>
+    </filter-mapping>
+	<filter-mapping>
+		<filter-name>Secure-Filter</filter-name>
+		<url-pattern>/FinRptViewer*</url-pattern>
+	</filter-mapping>
+
+	<!-- Defining the StartUpServlet in Web Application -->
+
+	<servlet>
+		<servlet-name>MenuMappingServlet</servlet-name>
+		<servlet-class>finbranchUtil.MenuMappingServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet>
+		<servlet-name>FinInit</servlet-name>
+		<servlet-class>finbranchUtil.FinInit</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<!-- Defining the lmlServlet in Web Application -->
+
+	<servlet>
+		<servlet-name>lmlServlet</servlet-name>
+		<servlet-class>finbranchUtil.lmlServlet</servlet-class>
+	</servlet>
+
+	<!-- Defining the Renderer in Web Application -->
+
+	<servlet>
+		<servlet-name>Renderer</servlet-name>
+		<servlet-class>com.infy.bbu.jsputil.Renderer</servlet-class>
+		<init-param>
+			<param-name>RESOURCES_EXPIRY_TIME_MINS</param-name>
+			<param-value>525600</param-value>
+			<description>rendererclass</description>
+		</init-param>
+	</servlet>
+
+
+	<!-- Defining the LoginResourceRenderer in Web Application -->
+		
+	<servlet>
+		<servlet-name>LoginResourceRenderer</servlet-name>
+		<servlet-class>finbranchUtil.LoginResourceRenderer</servlet-class>
+		<init-param>  
+			<param-name>RESOURCES_EXPIRY_TIME_MINS</param-name>
+			<param-value>525600</param-value>
+			<description>loginresourcerendererclass</description>
+		</init-param>
+	</servlet>
+	
+	<!-- Defining the HelpRenderer--> 
+	
+	<servlet>
+		<servlet-name>HelpRenderer</servlet-name>
+		<servlet-class>finbranchUtil.HelpRenderer</servlet-class>
+	</servlet>
+
+
+	<!-- Defining the MenuRenderer in Web Application -->
+
+	<servlet>
+		<servlet-name>MenuRenderer</servlet-name>
+		<servlet-class>finbranchUtil.MenuRenderer</servlet-class>
+		<init-param>
+			<param-name>MENU_CACHE_EXPIRY_TIME_MINS</param-name>
+			<param-value>60</param-value>
+			<description>Menurendererclass</description>
+		</init-param>
+	</servlet>
+	
+	<servlet>
+        <servlet-name>localCalMapRenderer</servlet-name>
+        <servlet-class>finbranchUtil.localCalMapRenderer</servlet-class>
+        <init-param>
+            <param-name>MAP_CACHE_EXPIRY_TIME_MINS</param-name>
+            <param-value>60</param-value>
+            <description>localCalMapRenderer</description>
+        </init-param>
+    </servlet>
+	<!-- Defining the FrwkRenderer in Web Application -->
+
+	<servlet>
+		<servlet-name>FrwkRenderer</servlet-name>
+		<servlet-class>com.infy.bbu.ons.view.utils.FrwkRenderer</servlet-class>
+		<init-param>
+			<param-name>RESOURCES_EXPIRY_TIME_MINS</param-name>
+			<param-value>525600</param-value>
+			<description>rendererclass</description>
+		</init-param>
+	</servlet>
+
+	<!-- Defining the DeviceRenderer in Web Application -->
+
+	<servlet>
+		<servlet-name>DeviceRenderer</servlet-name>
+		<servlet-class>finbranchUtil.DeviceRenderer</servlet-class>
+		<init-param>
+			<param-name>DEV_PROP_CACHE_EXPIRY_TIME_MINS</param-name>
+			<param-value>60</param-value>
+			<description>Devicerendererclass</description>
+		</init-param>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>FinRptViewer</servlet-name>
+		<servlet-class>finbranchUtil.FinRptViewer</servlet-class>
+	</servlet>	
+
+	<servlet>
+	    <servlet-name>FinGetMessageServlet</servlet-name>
+	    <servlet-class>com.infy.finacle.finalert.FinGetMessageServlet</servlet-class>
+	</servlet>
+	<servlet>
+	    <servlet-name>FinRouter</servlet-name>
+		<servlet-class>finbranchUtil.FinRouter</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DeviceServlet</servlet-name>
+		<servlet-class>finbranchUtil.DeviceServlet</servlet-class>
+	</servlet>
+
+    <servlet>
+        <servlet-name>InqExcelDownload</servlet-name>
+        <servlet-class>finbranchUtil.InqExcelDownload</servlet-class>
+    </servlet>
+
+	
+<!-- Please Uncomment the below portion till the logout servlet mapping if PEAS Workflow 
+     is installed and the portaljsp folder of the Admin Portal Login of Peas is a folder
+     in Finbranch.This portion does the servlet mapping required for the Admin Portal.Please      
+     note that after uncommenting,order of tags should not change.All servlet tags should come 
+     before servlet-mapping tags.  -->
+
+<!--PEASEMB
+	<servlet>
+  		<servlet-name>login</servlet-name>
+  		<servlet-class>peas.process.portal.LoginServlet</servlet-class>
+  	</servlet>
+  	
+   	<servlet>
+  		<servlet-name>logout</servlet-name>
+  		<servlet-class>peas.process.portal.LogoutServlet</servlet-class>
+  	</servlet>
+  	
+	<servlet>
+  		<servlet-name>admin</servlet-name>
+  		<servlet-class>peas.process.portal.AdminServlet</servlet-class>
+  	</servlet>
+	
+	<servlet>
+  		<servlet-name>user</servlet-name>
+  		<servlet-class>peas.process.portal.UsersServlet</servlet-class>
+  	</servlet>
+
+	<servlet>
+  		<servlet-name>CollaborationServlet</servlet-name>
+  		<servlet-class>peas.bpms.collaboration.portal.BPMSCollaborationConfigMgmtServlet</servlet-class>
+ 	</servlet>
+	
+	<servlet-mapping>
+  		<servlet-name>login</servlet-name>
+  		<url-pattern>/LoginServlet</url-pattern>
+  	</servlet-mapping>
+	
+	<servlet-mapping>
+  		<servlet-name>login</servlet-name>
+  		<url-pattern>/portaljsp/LoginServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+  		<servlet-name>admin</servlet-name>
+  		<url-pattern>/AdminServlet</url-pattern>
+  	</servlet-mapping>
+
+	<servlet-mapping>
+  		<servlet-name>user</servlet-name>
+  		<url-pattern>/userServlet</url-pattern>
+  	</servlet-mapping>
+
+  	<servlet-mapping>
+  		<servlet-name>logout</servlet-name>
+  		<url-pattern>/Logout</url-pattern>
+  	</servlet-mapping>  
+
+	<servlet-mapping>
+	    <servlet-name>CollaborationServlet</servlet-name>
+		<url-pattern>/CollaborationServlet</url-pattern>
+    </servlet-mapping>
+
+PEASEMB--> 
+
+<!-- This is the End of Servlet Mapping for PEAS Admin Portal-->
+
+<!-- Please Uncomment the below portion if PEAS is installed in MLB mode -->
+<!--PEASMLB
+	<servlet>
+		<servlet-name>login</servlet-name>
+		<servlet-class>peas.process.portal.LoginServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>logout</servlet-name>
+		<servlet-class>peas.process.portal.LogoutServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>admin</servlet-name>
+		<servlet-class>peas.process.portal.AdminServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>user</servlet-name>
+		<servlet-class>peas.process.portal.UsersServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>CollaborationServlet</servlet-name>
+		<servlet-class>peas.bpms.collaboration.portal.BPMSCollaborationConfigMgmtServlet</servlet-class>
+ 	</servlet>
+	<servlet>
+		<servlet-name>startup</servlet-name>
+		<servlet-class>peas.prmd.api.impl.init.StartUpServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>login</servlet-name>
+		<url-pattern>/LoginServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>login</servlet-name>
+		<url-pattern>/portaljsp/LoginServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>admin</servlet-name>
+		<url-pattern>/AdminServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>user</servlet-name>
+		<url-pattern>/userServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>logout</servlet-name>
+		<url-pattern>/Logout</url-pattern>
+	</servlet-mapping>  
+
+	<servlet-mapping>
+	    <servlet-name>CollaborationServlet</servlet-name>
+		<url-pattern>/CollaborationServlet</url-pattern>
+    	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>startup</servlet-name>
+		<url-pattern>/StartUpServlet</url-pattern>
+	</servlet-mapping>
+	
+PEASMLB--> 
+
+<!-- This is the End of Servlet Mapping for Multiple LoadBalancer PEAS Admin Portal-->
+
+	<servlet-mapping>
+		<servlet-name>Renderer</servlet-name>
+		<url-pattern>/Renderer/*</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>LoginResourceRenderer</servlet-name>
+		<url-pattern>/LoginResourceRenderer/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>lmlServlet</servlet-name>
+		<url-pattern>/lmlServlet/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>HelpRenderer</servlet-name>
+		<url-pattern>/HelpRenderer/*</url-pattern>
+	</servlet-mapping> 	
+
+	<servlet-mapping>
+		<servlet-name>Renderer</servlet-name>
+		<url-pattern>/arjspmorph/Renderer/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>FrwkRenderer</servlet-name>
+		<url-pattern>/FrwkRenderer/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>MenuRenderer</servlet-name>
+		<url-pattern>/MenuRenderer/*</url-pattern>
+	</servlet-mapping>
+    
+	<servlet-mapping>
+        <servlet-name>localCalMapRenderer</servlet-name>
+        <url-pattern>/localCalMapRenderer/*</url-pattern>
+    </servlet-mapping>    
+	
+	<servlet-mapping>
+         <servlet-name>DeviceRenderer</servlet-name>
+         <url-pattern>/DeviceRenderer/*</url-pattern>
+    </servlet-mapping>
+	
+	
+	<servlet-mapping>
+		<servlet-name>FinRptViewer</servlet-name>
+		<url-pattern>/FinRptViewer/*</url-pattern>
+	</servlet-mapping>
+
+    <servlet-mapping>
+         <servlet-name>FinGetMessageServlet</servlet-name>
+         <url-pattern>/FinGetMessageServlet/*</url-pattern>
+    </servlet-mapping>
+	<servlet-mapping>
+	    <servlet-name>FinRouter</servlet-name>
+		<url-pattern>/AppRouter</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DeviceServlet</servlet-name>
+		<url-pattern>/DeviceServlet</url-pattern>
+	</servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>InqExcelDownload</servlet-name>
+        <url-pattern>/InqExcelDownload</url-pattern>
+    </servlet-mapping>
+
+	 <error-page> 
+	        <exception-type>java.lang.Throwable</exception-type> 
+	        <location>/arjspmorph/fincoreexcp.jsp</location> 
+	 </error-page> 
+	
+	<taglib>
+		<taglib-uri>taglib.tld</taglib-uri>
+		<taglib-location>/WEB-INF/tlds/taglib.tld</taglib-location>
+	</taglib>
+
+	<taglib>
+		<taglib-uri>custom.tld</taglib-uri>
+		<taglib-location>/WEB-INF/tlds/custom.tld</taglib-location>
+	</taglib>
+
+	<taglib>
+		<taglib-uri>fi.tld</taglib-uri>
+		<taglib-location>/WEB-INF/tlds/fi.tld</taglib-location>
+	</taglib>	
+
+	<taglib>
+		<taglib-uri>dynamic.tld</taglib-uri>
+		<taglib-location>/WEB-INF/tlds/dynamic.tld</taglib-location>
+	</taglib>	
+
+	<taglib>
+        <taglib-uri>locale.tld</taglib-uri>
+        <taglib-location>/WEB-INF/tlds/locale.tld</taglib-location>
+    </taglib>
+	
+</web-app>

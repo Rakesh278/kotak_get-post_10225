@@ -1,0 +1,213 @@
+Issue Simulation:
+________________
+
+Security Testing
+________________
+
+Test Case 1:
+____________
+
+1. Do a CORE Login
+2. Invoke HBKTM menu, do ADD operation
+3. Intercept the request using proxy tool on doing a Submit in criteria screen.
+4. Change POST method to GET in proxy tool and forward the request.
+
+Configuration/Parameters/Setup:
+__________________________
+Add below content after "SECURE_CHECK_REQD" section
+FileName: web.xml
+Path : finbranch.war/WEB-INF. If WAS server, under this path also <WASProfile>/config/cells/<CellName>/applications/finbranch_war.ear/deployments/finbranch_war/finbranch.war/WEB-INF
+
+	<init-param>
+		<param-name>HTTPMETHOD_CHECK_REQD</param-name>
+		<param-value>Y</param-value>
+	</init-param>	
+
+Observed behavior before patch:
+________________________________
+Application accepts the request and proceeds further.
+
+Expected behavior after patch:
+________________________________
+1. Application should not accept request and ends in error message on UI.
+2. SecureFilter.log under FE/common/log/finbranch should have the failure entry.
+
+Test Case 2:
+____________
+
+1. Do a CORE Login
+2. Invoke HBKTM menu, do ADD operation
+3. Intercept the request using proxy tool on doing a Submit in criteria screen.
+4. Change POST method to GET in proxy tool and forward the request. This lands in error message on UI.
+5. Being on error screen, invoke another menu from menushortcut.
+
+Observed behavior before patch:
+________________________________
+Another menu should get invoked successfully.
+
+Expected behavior after patch:
+________________________________
+Another menu should get invoked successfully.
+
+Test Case 3:
+____________
+
+1. Do a CORE Login
+2. Invoke HBKTM menu, do ADD operation
+3. Intercept the request using proxy tool on doing a Submit in criteria screen.
+4. Change POST method to GET in proxy tool and forward the request. This lands in error message on UI.
+5. Being on error screen, do a XSS injection on invoking a menu.
+
+Observed behavior before patch:
+________________________________
+XSS validation should happen properly.
+
+Expected behavior after patch:
+________________________________
+1. XSS validation should happen properly.
+2. SecureFilter.log under FE/common/log/finbranch should have the failure entry.
+
+Test Case 4:
+____________
+
+1. Do a CORE Login
+2. Invoke HBKTM menu, do ADD operation
+3. Intercept the request using proxy tool on doing a Submit in criteria screen.
+4. Change POST method to GET in proxy tool and forward the request. This lands in error message on UI.
+5. Being on error screen, do a CSRF injection on invoking a menu.
+
+Observed behavior before patch:
+________________________________
+CSRF validation should happen properly.
+
+Expected behavior after patch:
+________________________________
+1. CSRF validation should happen properly.
+2. SecureFilter.log under FE/common/log/finbranch should have the failure entry.
+
+
+
+Test Case 5:
+____________
+
+1. Do a CORE Login
+2. Invoke HBKTM menu, do ADD operation
+3. Intercept the request using proxy tool on doing a Submit in criteria screen.
+4. Change POST method to GET in proxy tool and forward the request.
+
+Configuration/Parameters/Setup:
+__________________________
+Add below content after "SECURE_CHECK_REQD" section if not available.
+FileName: web.xml
+Path : finbranch.war/WEB-INF. If WAS server, under this path also <WASProfile>/config/cells/<CellName>/applications/finbranch_war.ear/deployments/finbranch_war/finbranch.war/WEB-INF
+
+	<init-param>
+		<param-name>HTTPMETHOD_CHECK_REQD</param-name>
+		<param-value>N</param-value>
+	</init-param>
+
+Observed behavior before patch:
+________________________________
+Application accepts the request and proceeds further.
+
+Expected behavior after patch:
+________________________________
+Application accepts the request and proceeds further.
+
+
+Test Case 6:
+____________
+
+1. Do a CORE Login
+2. Invoke HBKTM menu, do ADD operation
+3. Intercept the request using proxy tool on doing a Submit in criteria screen.
+4. Change POST method to GET in proxy tool and forward the request.
+
+Configuration/Parameters/Setup:
+__________________________
+Add below content after "SECURE_CHECK_REQD" section if not available.
+FileName: web.xml
+Path : finbranch.war/WEB-INF. If WAS server, under this path also <WASProfile>/config/cells/<CellName>/applications/finbranch_war.ear/deployments/finbranch_war/finbranch.war/WEB-INF
+
+	<init-param>
+		<param-name>HTTPMETHOD_CHECK_REQD</param-name>
+		<param-value></param-value>
+	</init-param>
+
+Observed behavior before patch:
+________________________________
+Application accepts the request and proceeds further.
+
+Expected behavior after patch:
+________________________________
+Application accepts the request and proceeds further.
+
+
+Functional Testing
+___________________
+
+Configuration/Parameters/Setup:
+__________________________
+Add below content after "SECURE_CHECK_REQD" section if not available.
+FileName: web.xml
+Path : finbranch.war/WEB-INF. If WAS server, under this path also <WASProfile>/config/cells/<CellName>/applications/finbranch_war.ear/deployments/finbranch_war/finbranch.war/WEB-INF
+
+	<init-param>
+		<param-name>HTTPMETHOD_CHECK_REQD</param-name>
+		<param-value>Y</param-value>
+	</init-param>	
+
+Above configuration is for all the below testcases.
+
+Test Case 1:
+____________
+1. Do a CORE Login
+2. Invoke HOAACLA menu
+3. Select CIF ID searcher and select searchers within the CIF ID searcher
+
+Observed behavior before patch:
+________________________________
+All searchers within CIF ID searches work properly.
+
+Expected behavior after patch:
+________________________________
+All searchers within CIF ID searches work properly.
+
+Test Case 2:
+____________
+1. Do a CORE Login
+2. On CORE home page, do a sanity of "Show Memo Pad", "Exit Memo Pad", "Background Menu", "Exit Background", "CCY Converter".
+
+Observed behavior before patch:
+________________________________
+All features should work properly.
+
+Expected behavior after patch:
+________________________________
+All features should work properly.
+
+Test Case 3:
+____________
+1. Do a CORE Login
+2. Do a sanity of ICFG searchers, Explode Buttons, Signature Icons, Date Pickers(Calendar), Text Area Fields, Exceptions.
+
+Observed behavior before patch:
+________________________________
+All features should work properly.
+
+Expected behavior after patch:
+________________________________
+All features should work properly.
+
+Test Case 4:
+____________
+1. Do a CORE Login
+2. Do a sanity of 2-3 menus from all the modules(Ensure normal menus, tabbed menus, multi-rec menus are also included)
+
+Observed behavior before patch:
+________________________________
+Sanity of menus must be successful.
+
+Expected behavior after patch:
+________________________________
+Sanity of menus must be successful.

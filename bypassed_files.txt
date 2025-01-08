@@ -1,0 +1,132 @@
+javascripts/otcedet_link.js:      document.location.href = jsUtil.formatUrl('otce_ctrl.jsp?submitform='+tmpBtnId);
+
+	to be bypassed in securefilter  ?submitform=
+	
+	
+javascripts/outchq_explode_link.js: document.location.href =jsUtil.formatUrl('../inchq/inchq_ctrl.jsp?submitform=CANCEL'+"&finsessionid="+finsessionid);
+		to be bypassed in securefilter  ?submitform=
+		
+		
+
+javascripts/outchq_explode_link.js: document.location.href = jsUtil.formatUrl('../outchq/outchq_ctrl.jsp?submitform=CANCEL'+"&finsessionid="+finsessionid);
+	to be bypassed in securefilter  ?submitform=
+	
+	
+	
+javascripts/otceotherdet_link.js:     document.location.href = jsUtil.formatUrl('otce_ctrl.jsp?submitform='+btnObj.id);
+						to be bypassed in securefilter  ?submitform=
+						
+						
+javascripts/otcedet_link.js:                    document.location.href = jsUtil.formatUrl('otce_ctrl.jsp?submitform='+tmpBtnId);
+				to be bypassed in securefilter  ?submitform=
+				
+javascripts/common_functions.js: document.location.href = jspAction + "&submitform=" + actionValue;
+		it can be bypassed 
+				
+				
+
+javascripts/imcdtl_link.js:   document.location.href = jsUtil.formatUrl(CONTROL_PAGE_STR + Const.ACTION_CANCEL);
+javascripts/imcdtl_link.js:    document.location.href = jsUtil.formatUrl(CONTROL_PAGE_STR + Const.ACTION_BACK);
+javascripts/imcvrfy1_link.js:     document.location.href = jsUtil.formatUrl(CONTROL_PAGE_STR + Const.ACTION_CANCEL);
+javascripts/imcvrfy1_link.js:    document.location.href = jsUtil.formatUrl(CONTROL_PAGE_STR + Const.ACTION_BACK);
+javascripts/drplist_link.js:       document.location.href = jsUtil.formatUrl(CONTROL_PAGE + Const.ACTION_CANCEL);
+javascripts/drplist_link.js:      document.location.href = jsUtil.formatUrl(CONTROL_PAGE + Const.ACTION_BACK);
+javascripts/imcaddnlcrit_link.js:     document.location.href = jsUtil.formatUrl(CONTROL_PAGE_STR + Const.ACTION_CANCEL);
+javascripts/serialdet_link.js:        document.location.href = jsUtil.formatUrl(CONTROL_PAGE_STR + Const.ACTION_CANCEL);
+javascripts/serialdet_link.js:    document.location.href = jsUtil.formatUrl(CONTROL_PAGE_STR + Const.ACTION_BACK);
+			It contains ?actionCode can be skipped.
+
+
+
+		
+javascripts/common_functions.js:   window.document.location.href = url;
+		can be skipped it contains arjspmorph
+						
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	javascripts/lockCommonFunction.js:      var qryPairs = document.location.href.split('?')[1].split('&');
+	this can be skipped we are retreving the value.
+	
+	
+	javascripts/cbe_util.js:  var idx = location.href.indexOf('?');
+	can be skipped.
+javascripts/cbe_util.js:    var pairs = location.href.substring(idx+1, location.href.length).split('&');
+	can be skipped
+	
+	javascripts/pnpbddet_link.js:      document.location.href = jsUtil.formatUrl(surl);
+
+		surl = '../pnpd/pnpd_ctrl.jsp?actionCode='+btnObj.id;
+		it contains ?actionCode== 
+		can be skipped
+	
+	
+	javascripts/crv_common_functions.js:  window.location.href = onsurlwf;
+	this is crv no longer used can be skipped.
+	
+	javascripts/crv_common_functions.js:            var url = window.location.href;
+		function getClient_ip(SSO,SSODomName)
+{
+    var frm = document.forms [0];
+        var dom_to_set =SSODomName;
+        var SSO = (dom_to_set != "") && SSO;
+    if (SSO) {
+        document.domain = dom_to_set;
+    }
+    if ( top.loginFrame!= undefined){
+       var IP =top.loginFrame.getClientIP();
+       frm.ipAddress.value=IP;
+    }
+        var url = window.location.href;
+        frm.action=url;
+    frm.submit();
+}
+this is crv no longer used can be skipped.
+
+
+javascripts/crv_common_functions.js:    var url = window.location.href;
+
+		it contains arjspmorph can be skipped
+		
+
+javascripts/pnpbd_link.js:                      document.location.href = jsUtil.formatUrl(surl);
+		surl = '../pnpd/pnpd_ctrl.jsp?actionCode='+btnObj.id;
+		it contains ?actionCode= can be skipped.
+
+javascripts/index.js:   window.frames[finConst.FINFRAME].location.href = sUrl;
+		var sUrl = hostInfo + finContextPath + "/fincore.jsp?rtId=" + rtId + "&";
+		since it contains fincore.jsp and we are bypassing it can be skipped.
+		
+javascripts/crvheader_link.js:      document.location.href = url;
+document.location.href = url;
+var url = baseHref + ctrlArr[4] + '?sessionid='+sessionid+'&sectok='+sectok;
+        url += '&finsessionid='+finsessionid+'&fabsessionid='+fabSessionId;
+        url += '&mopname='+menuName+'&mprec=' + crvConst.CRV_PREC;
+        url += '&invokeType=' + invokeType;
+		this is crv no longer used can be skipped.
+		
+		
+	

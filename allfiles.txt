@@ -1,0 +1,74 @@
+javascripts/otcedet_link.js:                    document.location.href = jsUtil.formatUrl('otce_ctrl.jsp?submitform='+tmpBtnId);
+javascripts/fcumm_resultpage_link.js:           document.location.href= jsUtil.formatUrl(returnPath);
+javascripts/inwclgreplay_inc.js:        document.location.href = jsUtil.formatUrl('<arjsp:return defaultPath="../repiwc/repiwc_ctrl.jsp"/>');
+javascripts/eHlpDhtm.js:                        targetDoc.location.href = strURL;
+javascripts/eHlpDhtm.js:                                getPopupIFrame(nIndex).document.location.href = strURL;
+javascripts/eHlpDhtm.js:                                window.location.href = e.target.href;
+javascripts/eHlpDhtm.js:                setAbsPopupURL(nIndex, window.getPopupIFrame(nIndex).document.location.href); // change URL to abs url.
+javascripts/eHlpDhtm.js:                setAbsPopupURL(nIndex, window.getPopupIFrame(nIndex).document.location.href); // change URL to abs url.
+javascripts/eHlpDhtm.js:                        if (window.getPopupIFrame(nIndex).document.location.href.indexOf("about:blank") != -1) { // add this check. IE will use about:blank" as the default vaule for Iframe.
+javascripts/eHlpDhtm.js:                                        setAbsPopupURL(nIndex, window.getPopupIFrame(nIndex).document.location.href); // change URL to abs url.
+javascripts/eHlpDhtm.js:                getPopupIFrame(nIndex).location.href = strURL;  // reload again, this will fix the bookmark misunderstand in IE5.
+javascripts/eHlpDhtm.js:        if (window.getPopupIFrame(nIndex).document.location.href != getAbsPopupURL(nIndex)) { // if redirect, reload again.
+javascripts/eHlpDhtm.js:                        window.document.location.href = PopupMenu_Invoke.arguments[3];
+javascripts/outchq_explode_link.js:     document.location.href = jsUtil.formatUrl('../inchq/inchq_ctrl.jsp?submitform=CANCEL'+"&finsessionid="+finsessionid);
+javascripts/outchq_explode_link.js:             document.location.href = jsUtil.formatUrl('../outchq/outchq_ctrl.jsp?submitform=CANCEL'+"&finsessionid="+finsessionid);
+javascripts/lockCommonFunction.js:      var qryPairs = document.location.href.split('?')[1].split('&');
+javascripts/pnpbddet_link.js:                           document.location.href = jsUtil.formatUrl(surl);
+javascripts/custom_header_link.js:      document.location.href = jsUtil.formatUrl(url);
+javascripts/custom_header_link.js:      document.location.href = jsUtil.formatUrl(strHomeUrl);
+javascripts/header_link.js:     var location = document.location.href;
+javascripts/header_link.js:    document.location.href= landingpageUrl+'?sessionid='+sessionid+'&sectok='+sectok+'&finsessionid='+finsessionid+'&fabsessionid='+fabsessionid+'&rtId='+rtId+'&reqId='+reqId+'&mo=HOME';
+javascripts/stoppayment_inc.js:        document.location.href = jsUtil.formatUrl("<arjsp:return defaultPath="stoppayment_ctrl.jsp"/>");
+javascripts/stoppayment_inc.js:       document.location.href = jsUtil.formatUrl("<arjsp:return defaultPath="stoppayment_ctrl.jsp"/>");
+javascripts/crv_common_functions.js:  window.location.href = onsurlwf;
+javascripts/crv_common_functions.js:            var url = window.location.href;
+javascripts/crv_common_functions.js:    var url = window.location.href;
+javascripts/paintUnifiedview.js:        document.location.href=jsUtil.formatUrl(url);
+javascripts/iftcfingoals_link.js:var pathArray = window.location.href.split( '/' );
+javascripts/foiq_criteria_link.js:      document.location.href="#second_part";
+javascripts/imcdtl_link.js:                     document.location.href = jsUtil.formatUrl(CONTROL_PAGE_STR + Const.ACTION_CANCEL);
+javascripts/imcdtl_link.js:             document.location.href = jsUtil.formatUrl(CONTROL_PAGE_STR + Const.ACTION_BACK);
+javascripts/imcvrfy1_link.js:                   document.location.href = jsUtil.formatUrl(CONTROL_PAGE_STR + Const.ACTION_CANCEL);
+javascripts/imcvrfy1_link.js:           document.location.href = jsUtil.formatUrl(CONTROL_PAGE_STR + Const.ACTION_BACK);
+javascripts/otceotherdet_link.js:                       document.location.href = jsUtil.formatUrl('otce_ctrl.jsp?submitform='+btnObj.id);
+javascripts/drplist_link.js:                    document.location.href = jsUtil.formatUrl(CONTROL_PAGE + Const.ACTION_CANCEL);
+javascripts/drplist_link.js:            document.location.href = jsUtil.formatUrl(CONTROL_PAGE + Const.ACTION_BACK);
+javascripts/outclginstr_criteria_link.js:       document.location.href="#second_part";
+javascripts/imcaddnlcrit_link.js:                       document.location.href = jsUtil.formatUrl(CONTROL_PAGE_STR + Const.ACTION_CANCEL);
+javascripts/ftcfingoals_link.js:var pathArray = window.location.href.split( '/' );
+javascripts/loan_criteria_link.js:      document.location.href="#second_part";
+javascripts/serialdet_link.js:                  document.location.href = jsUtil.formatUrl(CONTROL_PAGE_STR + Const.ACTION_CANCEL);
+javascripts/serialdet_link.js:          document.location.href = jsUtil.formatUrl(CONTROL_PAGE_STR + Const.ACTION_BACK);
+javascripts/fopacopres_link.js:         document.location.href=jsUtil.formatUrl(returnPath);
+javascripts/customize_functions.js:                parent.Bottom_Frame.location.href = "";
+javascripts/customize_functions.js:                parent.Bottom_Frame.location.href = sUrl;
+javascripts/revokepayment_inc.js:               document.location.href = jsUtil.formatUrl("<arjsp:return defaultPath="revokepayment_ctrl.jsp"/>");
+javascripts/ddpayment_inc.js:       document.location.href = jsUtil.formatUrl("<arjsp:return defaultPath="ddpayment_ctrl.jsp"/>");
+javascripts/crvheader_link.js:      document.location.href = url;
+javascripts/common_functions.js:                                document.location.href = jspAction + "&submitform=" + actionValue;
+javascripts/common_functions.js:                                document.location.href = jspAction;
+javascripts/common_functions.js:                document.location.href = jsUtil.formatUrl(sUrl);
+javascripts/common_functions.js:        var location = document.location.href;
+javascripts/common_functions.js:           document.location.href = path;
+javascripts/common_functions.js:                document.location.href = frm.screenName.value + "_ctrl.jsp?rtId="+rtId;
+javascripts/common_functions.js:        var url = window.location.href;
+javascripts/common_functions.js:                window.document.location.href = url;
+javascripts/login_common_functions.js:                                                          document.location.href = jspAction + "&submitform=" + actionValue;
+javascripts/login_common_functions.js:                                                          document.location.href = jspAction;
+javascripts/login_common_functions.js:                                  document.location.href = jsUtil.formatUrl(sUrl);
+javascripts/login_common_functions.js:  document.location.href = fabUrl;
+javascripts/login_common_functions.js:  var location = document.location.href;
+javascripts/login_common_functions.js:                document.location.href = frm.screenName.value + "_ctrl.jsp?rtId="+rtId;
+javascripts/oclodgereplay_inc.js:       document.location.href = jsUtil.formatUrl('<arjsp:return defaultPath="../repowc/repowc_ctrl.jsp"/>');
+javascripts/pnpbd_link.js:                      document.location.href = jsUtil.formatUrl(surl);
+javascripts/header_link.js_RQ30992_praveen:     document.location.href = url;
+javascripts/index.js:   window.frames[finConst.FINFRAME].location.href = sUrl;
+javascripts/cbe_util.js:  var idx = location.href.indexOf('?');
+javascripts/cbe_util.js:    var pairs = location.href.substring(idx+1, location.href.length).split('&');
+javascripts/lockMain.js:        parent.location.href = jsUtil.formatUrl(menuLink);
+javascripts/lockMain.js:        parent.location.href = jsUtil.formatUrl("CMSGNmn007.jsp");
+
+
+
+36

@@ -1,0 +1,37 @@
+T-patch:
+
+BL4US021- /PATCHES/10225GENPSP28-SUNTPATCH-patches/10225GENPSP28_T-testingDeliverables/fincore/417351.tar.gz
+BL4UL377- /PATCHES/10225GENPSP28-LIN84T-patches/10225GENPSP28_T-testingDeliverables/fincore/417351.tar.gz
+BL4UA067- /PATCHES/10225GENPSP28-AIX72OR12CTPATCH-patches/10225GENPSP28_T-testingDeliverables/fincore/417351.tar.gz
+BL4UL20H- /PATCHES/10225GENPSP28-LIN77-ORA19TPATCH-patches/10225GENPSP28_T-testingDeliverables/fincore/417351.tar.gz
+
+New T-patch:
+BL4UL20H- /PATCHES/10225GENPSP28-LIN77-ORA19TPATCH-patches/10225GENPSP28_T-testingDeliverables/fincore/417557.tar.gz
+BL4US021- /PATCHES/10225GENPSP28-SUNTPATCH-patches/10225GENPSP28_T-testingDeliverables/fincore/417557.tar.gz
+BL4UL377- /PATCHES/10225GENPSP28-LIN84T-patches/10225GENPSP28_T-testingDeliverables/fincore/417557.tar.gz
+BL4UA067- /PATCHES/10225GENPSP28-AIX72OR12CTPATCH-patches/10225GENPSP28_T-testingDeliverables/fincore/417557.tar.gz
+
+
+C-patch:
+BL4US021- /PATCHES/10225GENPSP28-SUN-patches/10225GENPSP28_C-testingDeliverables/fincore/418021.tar.gz
+BL4UA067- /PATCHES/10225GENPSP28-AIX72OR12C-patches/10225GENPSP28_C-testingDeliverables/fincore/418021.tar.gz
+BL4UL377- /PATCHES/10225GENPSP28-LIN84-patches/10225GENPSP28_C-testingDeliverables/fincore/418021.tar.gz
+BL4UL20H- /PATCHES/10225GENPSP28-LIN77-ORA19-patches/10225GENPSP28_C-testingDeliverables/fincore/418021.tar.gz
+
+
+HF27: for SecureFilter.java, SecurityConstants.java
+BL4UL20H- /PATCHES/10225GENPSP27-LIN77-ORA19-patches/10225GENPSP27_C-testingDeliverables/fincore/418023.tar.gz
+BL4UA067- /PATCHES/10225GENPSP27-AIX72OR12C-patches/10225GENPSP27_C-testingDeliverables/fincore/418023.tar.gz
+BL4UL377- /PATCHES/10225GENPSP27-LIN84-patches/10225GENPSP27_C-testingDeliverables/fincore/418023.tar.gz
+BL4US021- /PATCHES/10225GENPSP27-SUN-patches/10225GENPSP27_C-testingDeliverables/fincore/418023.tar.gz
+
+HF27: for locale_frm_fetch.jsp
+BL4UL377- /PATCHES/10225GENPSP27-LIN84-patches/10225GENPSP27_C-testingDeliverables/fincore/418029.tar.gz
+BL4UL20H- /PATCHES/10225GENPSP27-LIN77-ORA19-patches/10225GENPSP27_C-testingDeliverables/fincore/418029.tar.gz
+BL4UA067- /PATCHES/10225GENPSP27-AIX72OR12C-patches/10225GENPSP27_C-testingDeliverables/fincore/418029.tar.gz
+BL4US021- /PATCHES/10225GENPSP27-SUN-patches/10225GENPSP27_C-testingDeliverables/fincore/418029.tar.gz
+
+
+
+
+/PATCHES/10225GENPSP28-SUN-patches/10225GENPSP28_C-patches/soar/runtime/jar
